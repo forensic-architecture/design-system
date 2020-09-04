@@ -4,6 +4,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### Building the library with Rollup
+
+Run `rollup -c rollup.config.js` from the root folder — this will generate a `dist/` folder, along with styles. Then, run:
+
+```
+cd dist/
+npm link
+cd ..
+npm link design-system
+```
+
+to create an alias and be able to require components from the component library like so: `import {Button} from 'design-system'`. The only problem is, styles do not seem to be incorporated. Test this on `App.js` and `npm run start`.
+
 ### `npm run start`
 
 Runs the app in the development mode.<br />
