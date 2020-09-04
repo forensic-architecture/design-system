@@ -23,24 +23,9 @@ export default {
 
   plugins: [
     peerDepsExternal(),
-    // postcss({
-    //   extract: false,
-    //   modules: false,
-    //   use: ["sass"],
-    // }),
     postcss({
-      plugins: [
-        postcssModules({
-          getJSON(id, exportTokens) {
-            cssExportMap[id] = exportTokens;
-          },
-        }),
-      ],
-      getExportNamed: false,
-      getExport(id) {
-        return cssExportMap[id];
-      },
-      extract: "styles.css",
+      extract: true,
+      modules: false,
       use: ["sass"],
     }),
     babel({ exclude: "node_modules/**" }),
