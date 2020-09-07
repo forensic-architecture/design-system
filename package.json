@@ -1,9 +1,9 @@
 {
   "name": "fa-design-system",
-  "private": false,
+  "private": true,
   "description": "Forensic Architecture's React component library",
   "license": "Do No Harm",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "style": "dist/index.css",
   "files": [
