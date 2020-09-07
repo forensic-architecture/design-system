@@ -1,12 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Scripts
 
-## Available Scripts
+- `npm run start`: Starts the Create React App application, which enables local testing of our NPM-published component library.
+- `npm run storybook`: Runs an instance of Storybook, for easier component-driven development.
+- `npm run test`: Runs component tests using Enzyme and Jest.
+- `npm run build:lib`: Builds our component library using Rollup (anything inside `src/lib/` into the `dist` folder)
+- `npm run build-storybook`: Generates static files and a `storybook-static` folder for external consumption of our design system. This will be continuously deployed through Netlify at [design.forensic-architecture.org]()
 
-In the project directory, you can run:
+### Library building and testing with Rollup
 
-### Building the library with Rollup
-
-Run `rollup -c rollup.config.js` from the root folder — this will generate a `dist/` folder, along with styles. Then, run:
+Run `npm run build:lib` from the root folder — this will generate a `dist/` folder, along with styles. Then, run:
 
 ```
 cd dist/
@@ -15,29 +17,4 @@ cd ..
 npm link design-system
 ```
 
-to create an alias and be able to require components from the component library like so: `import {Button} from 'design-system'`. The only problem is, styles do not seem to be incorporated. Test this on `App.js` and `npm run start`.
-
-### `npm run start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm run test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-### `npm run storybook`
-
-View the [Storybook](https://storybook.js.org/) instance
+to create an alias and be able to require components from the component library like so: `import {Button} from 'design-system'`. Test that this works on `src/App.js`.

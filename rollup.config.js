@@ -3,33 +3,34 @@ import babel from "rollup-plugin-babel";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import postcss from "rollup-plugin-postcss";
-import postcssModules from "postcss-modules";
+import { terser } from "rollup-plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-
-const cssExportMap = {};
 
 export default {
   input: "./src/lib/index.js",
 
   output: [
     {
-      name: "design-system",
+      name: "fa-design-system",
       sourcemap: true,
       file: "./dist/index.js",
       format: "cjs",
       globals: { react: "React" },
+      plugins: [terser()],
     },
   ],
 
   plugins: [
     peerDepsExternal(),
     postcss({
-      extract: true,
+      extract: "index.css",
       modules: false,
+      minimize: true,
+      sourceMap: "inline",
       use: ["sass"],
     }),
-    babel({ exclude: "node_modules/**" }),
     resolve(),
+    babel({ exclude: "node_modules/**" }),
     commonjs(),
   ],
 

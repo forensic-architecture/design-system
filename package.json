@@ -1,26 +1,21 @@
 {
-  "name": "design-system",
+  "name": "fa-design-system",
   "version": "0.1.0",
   "main": "dist/index.js",
-  "private": true,
+  "style": "dist/index.css",
   "files": [
-    "dist/*",
-    "README.md"
+    "dist/*"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/forensic-architecture/design-system"
   },
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2"
-  },
+  "dependencies": {},
   "scripts": {
     "clean": "rimraf dist",
-    "compile": "npm run clean && cross-env NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:lib": "npm run clean && rollup -c rollup.config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
@@ -55,9 +50,14 @@
     "@storybook/node-logger": "^6.0.21",
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^6.0.21",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
     "babel-loader": "^8.1.0",
     "babel-plugin-macros": "^2.8.0",
     "cross-env": "^7.0.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.4",
     "node-sass": "^4.14.1",
     "postcss-modules": "^3.2.2",
     "prettier": "2.1.1",
@@ -70,6 +70,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.3",
-    "rollup-plugin-postcss": "^3.1.8"
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }
