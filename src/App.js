@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "design-system";
-import "design-system/dist/index.css";
+import { Button } from "fa-design-system";
+import "fa-design-system/dist/index.css";
 
 // import logo from "./logo.svg";
 import "./App.css";

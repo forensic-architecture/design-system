@@ -1,5 +1,8 @@
 {
   "name": "fa-design-system",
+  "private": true,
+  "description": "Forensic Architecture's React component library",
+  "license": "Do No Harm",
   "version": "0.1.0",
   "main": "dist/index.js",
   "style": "dist/index.css",
@@ -10,7 +13,9 @@
     "type": "git",
     "url": "https://github.com/forensic-architecture/design-system"
   },
-  "dependencies": {},
+  "dependencies": {
+    "fa-design-system": "^0.1.0"
+  },
   "scripts": {
     "clean": "rimraf dist",
     "start": "react-scripts start",
