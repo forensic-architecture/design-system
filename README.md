@@ -14,7 +14,7 @@ Run `npm run build:lib` from the root folder — this will generate a `dist/` fo
 cd dist/
 npm link
 cd ..
-npm link design-system
+npm link fa-design-system
 ```
 
 to create an alias and be able to require components from the component library like so: `import {Button} from 'design-system'`. Test that this works on `src/App.js`.
