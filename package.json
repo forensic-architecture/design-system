@@ -1,9 +1,9 @@
 {
   "name": "fa-design-system",
-  "private": true,
+  "private": false,
   "description": "Forensic Architecture's React component library",
   "license": "Do No Harm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "style": "dist/index.css",
   "files": [
@@ -13,18 +13,16 @@
     "type": "git",
     "url": "https://github.com/forensic-architecture/design-system"
   },
-  "dependencies": {
-    "fa-design-system": "^0.1.0"
-  },
+  "dependencies": {},
   "scripts": {
     "clean": "rimraf dist",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
     "build:lib": "npm run clean && rollup -c rollup.config.js",
+    "build:watch": "rollup -c rollup.config.js -w",
+    "build:storybook": "build-storybook -s public",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "start:app": "react-scripts start",
+    "start:storybook": "start-storybook -p 6006 -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,6 +38,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
