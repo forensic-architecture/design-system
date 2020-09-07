@@ -23,7 +23,7 @@ export default {
   plugins: [
     peerDepsExternal(),
     postcss({
-      extract: "index.css",
+      // extract: "index.css",
       modules: false,
       minimize: true,
       sourceMap: "inline",
