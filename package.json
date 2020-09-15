@@ -4,7 +4,7 @@
   "description": "Forensic Architecture's React component library",
   "license": "Do No Harm",
   "version": "0.2.0",
-  "main": "dist/index.js",
+  "main": "dist/vue/index.js",
   "style": "dist/index.css",
   "files": [
     "dist/*"
