@@ -1,6 +1,7 @@
 import "./styles/main.scss";
 import Button from "./components/Button/Button.vue";
 
+
 const exportedComponents = {
   Button,
 }
