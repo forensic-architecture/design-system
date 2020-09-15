@@ -13,8 +13,15 @@ Run `npm run build:lib` from the root folder — this will generate a `dist/` fo
 ```
 cd dist/
 npm link
-cd ..
+```
+
+### Developing timemap via design-system
+Or any other external repo locally:
+```
+npm run build:watch
+# in the timemap repo
 npm link fa-design-system
 ```
 
-to create an alias and be able to require components from the component library like so: `import {Button} from 'design-system'`. Test that this works on `src/App.js`.
+Componets from design-system can then be imported like so: `import {Button} from 'fa-design-system'`. Provided the build system of the external repo watches 'node_modules' for changes, the code should auto-refresh on changes in design-system as it normally would for changes within the timemap repo.
+
