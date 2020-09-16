@@ -25,7 +25,7 @@ export default {
       sourceMap: "inline",
       use: ["sass"],
     }),
-    resolve([".vue"]),
+    resolve(),
     commonjs(),
     vue({
       css: false
