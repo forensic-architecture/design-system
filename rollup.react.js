@@ -12,7 +12,7 @@ export default {
     {
       name: "fa-design-system",
       sourcemap: true,
-      file: "./dist/react/index.js",
+      file: "./dist/react.js",
       format: "cjs",
       globals: { react: "React" },
       plugins: [terser()],
