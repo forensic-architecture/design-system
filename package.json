@@ -4,11 +4,12 @@
   "description": "Forensic Architecture's React component library",
   "license": "Do No Harm",
   "version": "0.2.0",
-  "main": "dist/vue/index.js",
-  "style": "dist/index.css",
-  "files": [
-    "dist/*"
-  ],
+  "type": "module",
+  "main": "./dist/react.js",
+  "exports": {
+    "./": "./dist/"
+  },
+
   "repository": {
     "type": "git",
     "url": "https://github.com/forensic-architecture/design-system"
@@ -16,8 +17,8 @@
   "dependencies": {},
   "scripts": {
     "clean": "rimraf dist",
-    "build:react:lib": "npm run clean && rollup -c rollup.react.js",
-    "build:vue:lib": "npm run clean && rollup -c rollup.vue.js",
+    "build:react:lib": "rollup -c rollup.react.js",
+    "build:vue:lib": "rollup -c rollup.vue.js",
     "build:react:watch": "npm run build:react:lib -- -w",
     "build:vue:watch": "npm run build:vue:lib -- -w",
     "build:react:storybook": "build-storybook -s public",

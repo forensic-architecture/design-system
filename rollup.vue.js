@@ -12,7 +12,7 @@ export default {
       format: "esm",
       name: "fa-design-system",
       format: "cjs",
-      file: "./dist/vue/index.js",
+      file: "./dist/vue.js",
       exports: "named",
     },
   ],
