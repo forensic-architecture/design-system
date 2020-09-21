@@ -11,7 +11,7 @@ TextOnly.args = {
 };
 
 export default {
-  title: "Example/Card",
+  title: "FA/Components/Card",
   component: Card,
   argTypes: {},
 };
