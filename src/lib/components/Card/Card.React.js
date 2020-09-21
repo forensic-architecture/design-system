@@ -99,10 +99,10 @@ export class Card extends React.Component {
     // return null;
     return (
       <>
-        <div className="card-row">
-          {this.renderTime()}
-          {this.renderLocation()}
-        </div>
+        {/* <div className="card-row"></div> */}
+        {this.renderTime()}
+        {this.renderLocation()}
+        {/* <br /> */}
         {this.renderSummary()}
         {this.renderCustomFields()}
       </>
@@ -134,3 +134,7 @@ export class Card extends React.Component {
     );
   }
 }
+
+Card.defaultProps = {
+  onViewSource: () => {},
+};

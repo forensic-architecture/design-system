@@ -6,20 +6,22 @@ const CardLocation = ({ language, location, isPrecise }) => {
   if (location !== "") {
     return (
       <div className="card-cell location">
-        <p>
+        <>
+          <h4>Location</h4>
           {/* <i className="material-icons left">location_on</i> */}
           {`${location}${isPrecise ? "" : " (Approximated)"}`}
-        </p>
+        </>
       </div>
     );
   } else {
     const unknown = copy[language].cardstack.unknown_location;
     return (
       <div className="card-cell location">
-        <p>
-          <i className="material-icons left">location_on</i>
+        <>
+          {/* <i className="material-icons left">location_on</i> */}
+          <h4>Location</h4>
           {unknown}
-        </p>
+        </>
       </div>
     );
   }

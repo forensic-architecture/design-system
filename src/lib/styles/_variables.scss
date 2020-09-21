@@ -4,32 +4,38 @@ $offwhite: #efefef;
 $lightwhite: #dfdfdf;
 $midwhite: #a0a0a0;
 $darkwhite: darken($midwhite, 15%);
-$yellow: #eb443e; // #ffd800;
-$red: rgb(233, 0, 19);
+$red: rgb(238, 66, 56);
 $green: rgb(61, 241, 79);
 $midgrey: rgb(44, 44, 44);
 $darkgrey: #232323;
 $black: #000000;
 
 // Category colors
-$default:   red;
-$alpha:     #00ff00;
-$beta:      #ff00ff;
-$other:     yellow;
+$default: red;
+$alpha: #00ff00;
+$beta: #ff00ff;
+$other: yellow;
 
-.default { background: $default; }
-.other { background: $other; }
-.alpha { background: $alpha; }
-.beta { background: $beta; }
-
+.default {
+  background: $default;
+}
+.other {
+  background: $other;
+}
+.alpha {
+  background: $alpha;
+}
+.beta {
+  background: $beta;
+}
 
 // Font sizes
-$xsmall: 10px;//0.7em;
-$small: 11px;//0.9em;
-$normal: 12px;//1em;
-$large: 14px;//1.1em;
-$xlarge: 16px;//1.2em;
-$xxlarge: 20px;//1.4em;
+$xsmall: 10px; //0.7em;
+$small: 11px; //0.9em;
+$normal: 12px; //1em;
+$large: 14px; //1.1em;
+$xlarge: 16px; //1.2em;
+$xxlarge: 20px; //1.4em;
 $xxxlarge: 32px;
 
 // z-index levels
@@ -42,7 +48,6 @@ $map: 1;
 $scene: 1;
 $hidden: -1;
 $timeline: 3;
-
 
 // platform-specific sizes
 $infopopup-width: 400px;
