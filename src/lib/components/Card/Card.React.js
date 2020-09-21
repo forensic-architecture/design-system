@@ -27,9 +27,9 @@ export class Card extends React.Component {
     });
   }
 
-  makeTimelabel(datetime) {
-    return makeNiceDate(datetime);
-  }
+  // makeTimelabel(datetime) {
+  //   return makeNiceDate(datetime);
+  // }
 
   renderSummary() {
     return (
@@ -75,7 +75,7 @@ export class Card extends React.Component {
 
   // NB: should be internaionalized.
   renderTime() {
-    let timelabel = this.makeTimelabel(this.props.event.datetime);
+    let timelabel = makeNiceDate(this.props.event.datetime);
 
     return (
       <CardTime
