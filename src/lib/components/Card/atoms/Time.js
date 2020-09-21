@@ -12,7 +12,7 @@ const CardTime = ({ timelabel, language, precision }) => {
     return (
       <div className="card-cell timestamp">
         <p>
-          <i className="material-icons left">today</i>
+          {/* <i className="material-icons left">today</i> */}
           {timelabel}
           {precision && precision !== "" ? ` - ${precision}` : ""}
         </p>
@@ -22,7 +22,7 @@ const CardTime = ({ timelabel, language, precision }) => {
     return (
       <div className="card-cell timestamp">
         <p>
-          <i className="material-icons left">today</i>
+          {/* <i className="material-icons left">today</i> */}
           {unknownLang}
         </p>
       </div>

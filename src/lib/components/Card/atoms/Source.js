@@ -5,28 +5,28 @@ import { Spinner } from "../../../atoms/Spinner.React";
 import { typeForPath } from "../../../utils";
 
 const CardSource = ({ source, isLoading, onClickHandler }) => {
-  function renderIconText(type) {
-    switch (type) {
-      case "Eyewitness Testimony":
-        return "visibility";
-      case "Government Data":
-        return "public";
-      case "Satellite Imagery":
-        return "satellite";
-      case "Second-Hand Testimony":
-        return "visibility_off";
-      case "Video":
-        return "videocam";
-      case "Photo":
-        return "photo";
-      case "Photobook":
-        return "photo_album";
-      case "Document":
-        return "picture_as_pdf";
-      default:
-        return "help";
-    }
-  }
+  // function renderIconText(type) {
+  //   switch (type) {
+  //     case "Eyewitness Testimony":
+  //       return "visibility";
+  //     case "Government Data":
+  //       return "public";
+  //     case "Satellite Imagery":
+  //       return "satellite";
+  //     case "Second-Hand Testimony":
+  //       return "visibility_off";
+  //     case "Video":
+  //       return "videocam";
+  //     case "Photo":
+  //       return "photo";
+  //     case "Photobook":
+  //       return "photo_album";
+  //     case "Document":
+  //       return "picture_as_pdf";
+  //     default:
+  //       return "help";
+  //   }
+  // }
 
   if (!source) {
     return (
@@ -48,9 +48,6 @@ const CardSource = ({ source, isLoading, onClickHandler }) => {
   if (source.type === "" && source.paths.length >= 1) {
     source.type = typeForPath(source.paths[0]);
   }
-  const fallbackIcon = (
-    <i className="material-icons source-icon">{renderIconText(source.type)}</i>
-  );
 
   return (
     <div className="card-source">
@@ -63,13 +60,10 @@ const CardSource = ({ source, isLoading, onClickHandler }) => {
               className="source-icon"
               src={thumbnail}
               loader={<Spinner small />}
-              unloader={fallbackIcon}
               width={30}
               height={30}
             />
-          ) : (
-            fallbackIcon
-          )}
+          ) : null}
           <p>{source.title ? source.title : source.id}</p>
         </div>
       )}
