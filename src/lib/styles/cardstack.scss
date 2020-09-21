@@ -1,0 +1,101 @@
+// @import 'burger';
+@import "card";
+
+.card-stack {
+  position: absolute;
+  top: $card-right;
+  right: $card-right;
+  max-height: calc(100% - 180px);
+  height: auto;
+  width: $card-width;
+  overflow-y: scroll;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  z-index: $header;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &.narrative-mode {
+    right: $card-right;
+    left: auto;
+    top: $narrative-info-height + 32px;
+    height: calc(100% - #{$narrative-info-height} - #{$timeline-height} - 32px);
+  }
+
+  &.full-height {
+    max-height: calc(100% - 20px);
+  }
+
+  .card-stack-header {
+    min-height: 38px;
+    line-height: 38px;
+    width: $card-width;
+    box-sizing: border-box;
+    padding: 0 5px;
+    background: $black;
+    border-radius: 2px;
+    border: 1px solid $black;
+    font-size: $large;
+    transition: 0.2s ease;
+    text-align: left;
+
+    &:hover {
+      transition: 0.2s ease;
+    }
+
+    .header-copy {
+      margin: 0;
+      padding: 0 10px;
+      line-height: 20px;
+      text-align: right;
+
+      &.top {
+        padding-top: 10px;
+      }
+
+      &:last-child {
+        padding-bottom: 10px;
+      }
+    }
+
+    .side-menu-burg {
+      position: absolute;
+      left: 8px;
+      top: 9px;
+
+      span {
+        width: 20px;
+      }
+    }
+  }
+
+  .card-stack-content {
+    width: $card-width;
+
+    ul {
+      padding: 0;
+      margin-top: 1px;
+      margin-bottom: 0;
+    }
+
+    .card-list {
+      height: auto;
+    }
+  }
+
+  &.folded {
+    .card-stack-header {
+      border: 0;
+      height: 0;
+      overflow: hidden;
+    }
+    .card-stack-content {
+      height: 0;
+      overflow: hidden;
+    }
+  }
+}
+
+li {
+  list-style-type: none;
+}

@@ -1,9 +1,10 @@
 import React from "react";
-import { Button } from "fa-design-system";
+import { Button, Card } from "fa-design-system/react";
 // import "fa-design-system/dist/index.css";
 
 // import logo from "./logo.svg";
 import "./App.css";
+import { CardProps } from "./test/Card";
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
           Test that our locally-linked <code>design-system</code> NPM package,
           correctly retrieves components
         </p>
-        <Button primary label={"Button"} />
       </header>
+      <Button primary label={"Button"} />
+      <Card {...CardProps} />
     </div>
   );
 }
