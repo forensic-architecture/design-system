@@ -11,20 +11,22 @@ const CardTime = ({ timelabel, language, precision }) => {
   if (isNotNullNorUndefined(timelabel)) {
     return (
       <div className="card-cell timestamp">
-        <p>
+        <>
           {/* <i className="material-icons left">today</i> */}
+          <h4>Timestamp</h4>
           {timelabel}
           {precision && precision !== "" ? ` - ${precision}` : ""}
-        </p>
+        </>
       </div>
     );
   } else {
     return (
       <div className="card-cell timestamp">
-        <p>
+        <>
           {/* <i className="material-icons left">today</i> */}
+          <h4>Timestamp</h4>
           {unknownLang}
-        </p>
+        </>
       </div>
     );
   }

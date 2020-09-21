@@ -36,7 +36,7 @@ export const CardProps = {
   customEventFields: [
     {
       key: "journalist_name",
-      title: "Name of reporter/s",
+      title: "Name of reporter(s)",
       icon: "face",
       kind: "text",
     },
@@ -47,4 +47,5 @@ export const CardProps = {
       kind: "text",
     },
   ],
+  // onViewSource: () => {},
 };
