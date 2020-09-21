@@ -87,7 +87,7 @@ export class Card extends React.Component {
   }
 
   renderCustomFields() {
-    return this.props.features.CUSTOM_EVENT_FIELDS.map((field) => {
+    return this.props.customEventFields.map((field) => {
       const value = this.props.event[field.key];
       return value ? (
         <CardCustomField field={field} value={this.props.event[field.key]} />
@@ -98,14 +98,14 @@ export class Card extends React.Component {
   renderMain() {
     // return null;
     return (
-      <div className="card-container">
-        <div className="card-row details">
+      <>
+        <div className="card-row">
           {this.renderTime()}
           {this.renderLocation()}
         </div>
         {this.renderSummary()}
         {this.renderCustomFields()}
-      </div>
+      </>
     );
   }
 
@@ -114,19 +114,17 @@ export class Card extends React.Component {
   }
 
   renderCaret() {
-    return this.props.features.USE_SOURCES ? (
+    return this.props.useSources ? (
       <CardCaret toggle={() => this.toggle()} isOpen={this.state.isOpen} />
     ) : null;
   }
 
   render() {
-    const { isSelected, idx } = this.props;
+    const { isSelected } = this.props;
 
     return (
       <li
         className={`event-card ${isSelected ? "selected" : ""}`}
-        id={`event-card-${idx}`}
-        ref={this.props.innerRef}
         onClick={this.props.onSelect}
       >
         {this.renderMain()}
@@ -136,23 +134,3 @@ export class Card extends React.Component {
     );
   }
 }
-
-// Card.propTypes = {
-//   language,
-//   event: {
-//     description,
-//     location,
-//     time,
-//     sources,
-//     datetime
-//   },
-//   features,
-//   onSelect,
-//   innerRef
-// }
-
-// The ref to each card will be used in CardStack for programmatic scrolling
-// export default Card;
-// export default React.forwardRef((props, ref) => (
-//   <Card innerRef={ref} {...props} />
-// ));
