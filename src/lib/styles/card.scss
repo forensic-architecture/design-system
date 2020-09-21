@@ -1,0 +1,222 @@
+.event-card {
+  box-sizing: border-box;
+  margin: 1px 0 0 0;
+  padding: 15px;
+  border: 1px solid $black;
+  transition: 0.2 ease;
+  background: $midwhite;
+  color: $darkgrey;
+  box-shadow: 0 19px 19px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  font-size: $large;
+  line-height: $xxlarge;
+  height: auto;
+  opacity: 0.9;
+  transition: background-color 0.4s;
+
+  &:hover {
+    background: $lightwhite;
+    transition: background-color 0.4s;
+    cursor: pointer;
+  }
+
+  h4 {
+    margin-bottom: 0;
+    margin-right: 5px;
+    text-transform: uppercase;
+    font-size: $xsmall;
+    color: $darkwhite;
+    font-weight: 100;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .material-icons {
+    font-size: $normal;
+    color: $darkwhite;
+    margin-right: 5px;
+  }
+
+  .card-row,
+  .card-col {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0 10px 0;
+    padding-bottom: 10px;
+
+    .card-cell {
+      flex: 1;
+    }
+
+    h4 {
+      min-width: 80px;
+      max-width: 80px;
+    }
+  }
+
+  .card-col {
+    flex-direction: column;
+  }
+
+  .card-source {
+    margin: 0;
+    padding: 2px 0;
+    border-radius: 3px;
+
+    .source-row {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 8px 15px;
+      border-left: 5px solid $darkgrey;
+      background: linear-gradient(to right, $darkgrey 50%, transparent 50%);
+      background-size: 200% 100%;
+      background-position: right bottom;
+      margin-left: -16px;
+      margin-right: -16px;
+
+      &:hover {
+        background-color: $darkgrey;
+        color: white;
+        cursor: pointer;
+        .material-icons {
+          color: white;
+        }
+        background-position: left bottom;
+        transition: all 2s ease;
+      }
+    }
+
+    .source-icon {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      margin-right: 15px;
+    }
+  }
+
+  .card-cell {
+    a {
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: $darkwhite;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    a.disabled {
+      color: $midgrey;
+      font-weight: normal;
+      cursor: default;
+    }
+  }
+
+  .card-bottomhalf {
+    transition: 0.4s ease;
+    height: auto;
+
+    &.folded {
+      transition: 0.4s ease;
+      height: 0;
+      overflow: hidden;
+    }
+  }
+
+  .card-toggle p {
+    text-align: center;
+    cursor: pointer;
+
+    .arrow-down {
+      display: inline-block;
+      transition: 0.2s ease;
+      border: solid $darkwhite;
+      border-width: 0 2px 2px 0;
+      padding: 3px;
+      transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+
+      &.folded {
+        transition: 0.2s ease;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+    }
+
+    &:hover .arrow-down {
+      transition: 0.2s ease;
+      border: solid $darkgrey;
+      border-width: 0 2px 2px 0;
+    }
+  }
+
+  .filters {
+    width: 100%;
+    margin: 5px 0;
+    text-align: left;
+  }
+
+  .warning {
+    background: $red;
+    color: white;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+  }
+
+  .timestamp {
+    font-family: "Lato", Helvetica, sans-serif;
+    margin-top: 0;
+
+    .estimated-timestamp {
+      color: $midwhite;
+      margin-left: 5px;
+    }
+  }
+
+  .category {
+    margin-bottom: 5px;
+
+    .color-category {
+      width: 12px;
+      height: 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin: 0 0 0 5px;
+    }
+
+    p {
+      text-align: right;
+      flex: 1;
+    }
+  }
+
+  .location {
+    font-family: "Lato", Helvetica, sans-serif;
+  }
+
+  .summary {
+    overflow: auto;
+    margin-top: 0;
+    border-bottom: none;
+    white-space: pre-line;
+  }
+
+  .filter {
+    display: inline-block;
+    margin: 0;
+    margin-right: 5px;
+  }
+
+  &.selected {
+    background: $offwhite;
+  }
+
+  .card-row {
+    border-color: darkgray;
+  }
+}
