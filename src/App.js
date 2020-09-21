@@ -16,9 +16,9 @@ function App() {
           Test that our locally-linked <code>design-system</code> NPM package,
           correctly retrieves components
         </p>
-        <Button primary label={"Button"} />
-        <Card {...CardProps} />
       </header>
+      <Button primary label={"Button"} />
+      <Card {...CardProps} />
     </div>
   );
 }
