@@ -5,28 +5,28 @@ import { Spinner } from "../../../atoms/Spinner.React";
 import { typeForPath } from "../../../utils";
 
 const CardSource = ({ source, isLoading, onClickHandler }) => {
-  // function renderIconText(type) {
-  //   switch (type) {
-  //     case "Eyewitness Testimony":
-  //       return "visibility";
-  //     case "Government Data":
-  //       return "public";
-  //     case "Satellite Imagery":
-  //       return "satellite";
-  //     case "Second-Hand Testimony":
-  //       return "visibility_off";
-  //     case "Video":
-  //       return "videocam";
-  //     case "Photo":
-  //       return "photo";
-  //     case "Photobook":
-  //       return "photo_album";
-  //     case "Document":
-  //       return "picture_as_pdf";
-  //     default:
-  //       return "help";
-  //   }
-  // }
+  function sourceType(type) {
+    switch (type) {
+      case "Eyewitness Testimony":
+        return "Eyewitness";
+      case "Government Data":
+        return "Gov";
+      case "Satellite Imagery":
+        return "Sat";
+      case "Second-Hand Testimony":
+        return "Testimony (2nd hand)";
+      case "Video":
+        return "Video";
+      case "Photo":
+        return "Pic";
+      case "Photobook":
+        return "Photo";
+      case "Document":
+        return "Doc";
+      default:
+        return "?";
+    }
+  }
 
   if (!source) {
     return (
@@ -64,7 +64,10 @@ const CardSource = ({ source, isLoading, onClickHandler }) => {
               height={30}
             />
           ) : null}
-          <p>{source.title ? source.title : source.id}</p>
+          <div>
+            <span className="source-type">{sourceType(source.type)}</span>
+            {source.title ? source.title : source.id}
+          </div>
         </div>
       )}
     </div>
