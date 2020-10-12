@@ -1,6 +1,4 @@
-import React from "react";
-
-// import PropTypes from "prop-types";
+import React, { useState } from "react";
 
 import CardCustomField from "./atoms/CustomField";
 import CardTime from "./atoms/Time";
@@ -8,133 +6,145 @@ import CardLocation from "./atoms/Location";
 import CardCaret from "./atoms/Caret";
 import CardSummary from "./atoms/Summary";
 import CardSource from "./atoms/Source";
+import CardMedia from "./atoms/Media";
 
 import copy from "../../data/copy.json";
 import { makeNiceDate } from "../../utils";
 
-export class Card extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpen: false,
-    };
-    console.log(props);
-  }
+export const Card = ({
+  customEventFields = [],
+  event = {
+    datetime: ``,
+    description: ``,
+    location: ``,
+    type: ``,
+    sources: [],
+  },
+  inlineMedia = false,
+  isLoading = true,
+  isSelected = false,
+  language = ``,
+  onSelect = () => {},
+  onViewSource = () => {},
+  sourceError = false,
+  useSources = true,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
-  }
+  const toggle = () => setIsOpen(!isOpen);
 
-  // makeTimelabel(datetime) {
-  //   return makeNiceDate(datetime);
-  // }
-
-  renderSummary() {
+  const renderSummary = () => {
     return (
       <CardSummary
-        language={this.props.language}
-        description={this.props.event.description}
-        isOpen={this.state.isOpen}
+        language={language}
+        description={event.description}
+        isOpen={isOpen}
       />
     );
-  }
+  };
 
-  renderLocation() {
+  const renderLocation = () => {
     return (
       <CardLocation
-        language={this.props.language}
-        location={this.props.event.location}
-        isPrecise={
-          !this.props.event.type || this.props.event.type === "Structure"
-        }
+        language={language}
+        location={event.location}
+        isPrecise={!event.type || event.type === "Structure"}
       />
     );
-  }
+  };
 
-  renderSources() {
-    if (this.props.sourceError) {
+  const renderSources = () => {
+    if (sourceError) {
       return <div>ERROR: something went wrong loading sources, TODO:</div>;
     }
 
-    const sourceLang = copy[this.props.language].cardstack.sources;
+    const sourceLang = copy[language].cardstack.sources;
     return (
       <div className="card-col">
         <h4>{sourceLang}: </h4>
-        {this.props.event.sources.map((source) => (
+        {event.sources.map((source) => (
           <CardSource
-            isLoading={this.props.isLoading}
+            isLoading={isLoading}
             source={source}
-            onClickHandler={(source) => this.props.onViewSource(source)}
+            onClickHandler={(source) => onViewSource(source)}
           />
         ))}
       </div>
     );
-  }
+  };
 
   // NB: should be internaionalized.
-  renderTime() {
-    let timelabel = makeNiceDate(this.props.event.datetime);
+  const renderTime = () => {
+    let timelabel = makeNiceDate(event.datetime);
 
     return (
       <CardTime
         makeTimelabel={timelabel}
-        language={this.props.language}
+        language={language}
         timelabel={timelabel}
       />
     );
-  }
+  };
 
-  renderCustomFields() {
-    return this.props.customEventFields.map((field) => {
-      const value = this.props.event[field.key];
+  const renderCustomFields = () => {
+    return customEventFields.map((field) => {
+      const value = event[field.key];
       return value ? (
-        <CardCustomField field={field} value={this.props.event[field.key]} />
+        <CardCustomField field={field} value={event[field.key]} />
       ) : null;
     });
-  }
+  };
 
-  renderMain() {
+  const renderMain = () => {
     // return null;
     return (
       <>
-        {/* <div className="card-row"></div> */}
-        {this.renderTime()}
-        {this.renderLocation()}
+        <div className="card-row">
+          {renderTime()}
+          {renderLocation()}
+        </div>
         {/* <br /> */}
-        {this.renderSummary()}
-        {this.renderCustomFields()}
+        {renderSummary()}
+        {renderCustomFields()}
       </>
     );
-  }
+  };
 
-  renderExtra() {
-    return <div className="card-bottomhalf">{this.renderSources()}</div>;
-  }
+  const renderExtra = () => {
+    return <div className="card-bottomhalf">{renderSources()}</div>;
+  };
 
-  renderCaret() {
-    return this.props.useSources ? (
-      <CardCaret toggle={() => this.toggle()} isOpen={this.state.isOpen} />
+  const renderCaret = () => {
+    return useSources ? (
+      <CardCaret toggle={() => toggle()} isOpen={isOpen} />
     ) : null;
-  }
+  };
 
-  render() {
-    const { isSelected } = this.props;
-
+  const renderText = () => {
     return (
-      <li
-        className={`event-card ${isSelected ? "selected" : ""}`}
-        onClick={this.props.onSelect}
-      >
-        {this.renderMain()}
-        {this.state.isOpen ? this.renderExtra() : null}
-        {isSelected ? this.renderCaret() : null}
-      </li>
+      <>
+        {renderMain()}
+        {isOpen && renderExtra()}
+        {isSelected ? renderCaret() : null}
+      </>
     );
-  }
-}
+  };
 
-Card.defaultProps = {
-  onViewSource: () => {},
+  const renderMedia = () => {
+    return (
+      <>
+        {true && <CardMedia src={event.sources[0].paths[0]} />}
+        <div className="card-row">text</div>
+      </>
+    );
+  };
+
+  return (
+    <li
+      className={`event-card ${isSelected ? "selected" : ""}`}
+      onClick={onSelect}
+    >
+      {inlineMedia ? renderMedia() : renderText()}
+    </li>
+  );
 };

@@ -28,6 +28,10 @@ export function typeForPath(path) {
   return type;
 }
 
+export function selectTypeFromPathWithPoster(path, poster) {
+  return { type: typeForPath(path), path, poster };
+}
+
 /**
  * Return whether the variable is neither null nor undefined
  * @param {object} variable

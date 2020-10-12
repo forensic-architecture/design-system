@@ -8,6 +8,13 @@ const Template = (args) => <Card {...args} />;
 export const TextOnly = Template.bind({});
 TextOnly.args = {
   ...CardProps,
+  inlineMedia: false,
+};
+
+export const InlineMedia = Template.bind({});
+InlineMedia.args = {
+  ...CardProps,
+  inlineMedia: true,
 };
 
 export default {

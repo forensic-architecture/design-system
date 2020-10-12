@@ -18,7 +18,7 @@
   &:hover {
     background: $lightwhite;
     transition: background-color 0.4s;
-    cursor: pointer;
+    // cursor: pointer;
   }
 
   h4 {
@@ -38,11 +38,11 @@
     margin: 0;
   }
 
-  .material-icons {
-    font-size: $normal;
-    color: $darkwhite;
-    margin-right: 5px;
-  }
+  // .material-icons {
+  //   font-size: $normal;
+  //   color: $darkwhite;
+  //   margin-right: 5px;
+  // }
 
   .card-row,
   .card-col,
@@ -59,11 +59,6 @@
     .card-cell {
       flex: 1;
     }
-
-    // h4 {
-    //   min-width: 80px;
-    //   max-width: 80px;
-    // }
   }
 
   .card-col {
@@ -79,23 +74,19 @@
       display: flex;
       flex-direction: row;
       align-items: flex-start;
-      padding: 8px 15px;
-      border-left: 5px solid $darkgrey;
+      padding: 5px 10px;
+      border-left: 3px solid $darkgrey;
       background: linear-gradient(to right, $darkgrey 50%, transparent 50%);
       background-size: 200% 100%;
       background-position: right bottom;
-      // margin-left: -16px;
-      margin-right: -16px;
 
       &:hover {
         background-color: $darkgrey;
         color: white;
         cursor: pointer;
-        .material-icons {
-          color: white;
-        }
+
         background-position: left bottom;
-        transition: all 2s ease;
+        transition: all 1s ease-in;
       }
     }
 
@@ -127,6 +118,36 @@
       color: $midgrey;
       font-weight: normal;
       cursor: default;
+    }
+
+    video {
+      width: 100%;
+      max-height: 200px;
+      user-select: none;
+      &:focus {
+        outline: 0 !important;
+      }
+    }
+
+    video::-webkit-media-controls-panel {
+      // remove Chrome's gradient
+      background-image: none !important;
+      filter: brightness(0.1);
+    }
+
+    /* Could Use thise as well for Individual Controls */
+    video::-webkit-media-controls-play-button {
+      align-self: center;
+    }
+
+    video::-webkit-media-controls-volume-slider {
+    }
+
+    video::-webkit-media-controls-mute-button {
+    }
+
+    video::-webkit-media-controls-timeline {
+      display: none;
     }
   }
 
@@ -182,14 +203,6 @@
     text-align: center;
   }
 
-  .location,
-  .timestamp {
-    // color: $red;
-    // text-transform: uppercase;
-    // font-size: $small;
-    // font-weight: bold;
-  }
-
   .timestamp {
     margin-top: 0;
 
@@ -197,6 +210,15 @@
       color: $midwhite;
       margin-left: 5px;
     }
+  }
+
+  .media {
+    max-height: 200px;
+    width: auto;
+
+    // .video-react-controls {
+    //   display: none;
+    // }
   }
 
   .category {
