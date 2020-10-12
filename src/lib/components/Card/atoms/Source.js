@@ -1,5 +1,4 @@
 import React from "react";
-import Img from "react-image";
 
 import { Spinner } from "../../../atoms/Spinner.React";
 import { typeForPath } from "../../../utils";
@@ -24,7 +23,7 @@ const CardSource = ({ source, isLoading, onClickHandler }) => {
       case "Document":
         return "Doc";
       default:
-        return "?";
+        return "";
     }
   }
 
@@ -56,16 +55,15 @@ const CardSource = ({ source, isLoading, onClickHandler }) => {
       ) : (
         <div className="source-row" onClick={() => onClickHandler(source)}>
           {thumbnail ? (
-            <Img
+            <img
               className="source-icon"
               src={thumbnail}
-              loader={<Spinner small />}
-              width={30}
-              height={30}
+              style={{ width: 30, height: 30 }}
+              alt={"source icon thumbnail"}
             />
           ) : null}
           <div>
-            <span className="source-type">{sourceType(source.type)}</span>
+            <span className="source-type">{sourceType(source.type)} /</span>
             {source.title ? source.title : source.id}
           </div>
         </div>

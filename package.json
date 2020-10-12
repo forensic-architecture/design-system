@@ -15,8 +15,7 @@
     "url": "https://github.com/forensic-architecture/design-system"
   },
   "dependencies": {
-    "marked": "^1.1.1",
-    "react-image": "^4.0.3"
+    "marked": "^1.1.1"
   },
   "scripts": {
     "clean": "rimraf dist",
