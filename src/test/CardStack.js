@@ -117,6 +117,35 @@ export const CardStackProps = {
       datetime: new Date(2020, 1, 28),
     },
     {
+      associations: ["Other"],
+      sources: [
+        {
+          paths: [
+            "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/114.mp4",
+          ],
+          id: "source42",
+          title: "John Doe",
+          type: "",
+          description: "lorem ipsum",
+          url:
+            "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/114.mp4",
+        },
+      ],
+      description:
+        "Civilians clear a path for an ambulance to get through, while police officers refuse to unblock the road. ",
+      date: "6/5/2020",
+      time: "",
+      location: "Seattle, WA",
+      latitude: "47.6153",
+      longitude: "-122.317714",
+      category: "Civilian",
+      colour: "#40BCD8",
+      news_organisation: "",
+      journalist_name: "",
+      id: 257,
+      datetime: new Date(2020, 1, 28),
+    },
+    {
       associations: ["Arrest/Detention"],
       sources: [
         {
