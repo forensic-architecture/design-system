@@ -38,12 +38,6 @@
     margin: 0;
   }
 
-  // .material-icons {
-  //   font-size: $normal;
-  //   color: $darkwhite;
-  //   margin-right: 5px;
-  // }
-
   .card-row,
   .card-col,
   .card-cell {
@@ -119,36 +113,6 @@
       font-weight: normal;
       cursor: default;
     }
-
-    video {
-      width: 100%;
-      max-height: 200px;
-      user-select: none;
-      &:focus {
-        outline: 0 !important;
-      }
-    }
-
-    video::-webkit-media-controls-panel {
-      // remove Chrome's gradient
-      background-image: none !important;
-      filter: brightness(0.1);
-    }
-
-    /* Could Use thise as well for Individual Controls */
-    video::-webkit-media-controls-play-button {
-      align-self: center;
-    }
-
-    video::-webkit-media-controls-volume-slider {
-    }
-
-    video::-webkit-media-controls-mute-button {
-    }
-
-    video::-webkit-media-controls-timeline {
-      display: none;
-    }
   }
 
   .card-bottomhalf {
@@ -213,12 +177,41 @@
   }
 
   .media {
-    max-height: 200px;
-    width: auto;
+    display: flex;
+    max-height: 350px;
 
-    // .video-react-controls {
-    //   display: none;
-    // }
+    video {
+      width: 100%;
+      user-select: none;
+      &:focus {
+        outline: 0 !important;
+      }
+    }
+
+    video::-webkit-media-controls-panel {
+      // remove Chrome's gradient
+      background-image: none !important;
+      filter: brightness(0.1);
+      display: flex;
+      // flex-direction: column;
+      // justify-content: space-around;
+      // flex-basis: 40px;
+      width: 40px;
+    }
+
+    video::-webkit-media-controls {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    /* Could Use thise as well for Individual Controls */
+    video::-webkit-media-controls-play-button {
+      align-self: center;
+    }
+
+    video::-webkit-media-controls-timeline {
+      display: none;
+    }
   }
 
   .category {
