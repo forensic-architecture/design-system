@@ -93,7 +93,7 @@ export const CardStack = ({
           onSelect={onSelect}
           idx={idx}
           features={features}
-          inlineMedia
+          inlineMedia={event?.sources[0]?.paths}
         />
       );
     });
