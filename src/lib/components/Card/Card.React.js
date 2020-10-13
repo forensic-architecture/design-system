@@ -95,14 +95,18 @@ export const Card = ({
     });
   };
 
+  const renderContextual = () => (
+    <div className="card-row">
+      {renderTime()}
+      {renderLocation()}
+    </div>
+  );
+
   const renderMain = () => {
     // return null;
     return (
       <>
-        <div className="card-row">
-          {renderTime()}
-          {renderLocation()}
-        </div>
+        {renderContextual()}
         {/* <br /> */}
         {renderSummary()}
         {renderCustomFields()}
@@ -114,11 +118,8 @@ export const Card = ({
     return <div className="card-bottomhalf">{renderSources()}</div>;
   };
 
-  const renderCaret = () => {
-    return useSources ? (
-      <CardCaret toggle={() => toggle()} isOpen={isOpen} />
-    ) : null;
-  };
+  const renderCaret = () =>
+    useSources && <CardCaret toggle={() => toggle()} isOpen={isOpen} />;
 
   const renderText = () => {
     return (
@@ -130,11 +131,12 @@ export const Card = ({
     );
   };
 
-  const renderMedia = () => {
+  const renderMedia = (fn = []) => {
     return (
       <>
+        {fn.map((f) => f())}
+        <br />
         {true && <CardMedia src={event.sources[0].paths[0]} />}
-        <div className="card-row">text</div>
       </>
     );
   };
@@ -144,7 +146,8 @@ export const Card = ({
       className={`event-card ${isSelected ? "selected" : ""}`}
       onClick={onSelect}
     >
-      {inlineMedia ? renderMedia() : renderText()}
+      {!inlineMedia && renderText()}
+      {inlineMedia && renderMedia([renderContextual, renderSummary])}
     </li>
   );
 };

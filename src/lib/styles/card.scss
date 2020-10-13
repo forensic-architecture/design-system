@@ -179,6 +179,17 @@
   .media {
     display: flex;
     max-height: 350px;
+    // justify-content: center;
+    flex-direction: row;
+
+    .img-wrapper {
+      width: 100%;
+      display: flex;
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
 
     video {
       width: 100%;
@@ -191,17 +202,11 @@
     video::-webkit-media-controls-panel {
       // remove Chrome's gradient
       background-image: none !important;
-      filter: brightness(0.1);
+      filter: brightness(0.9);
       display: flex;
-      // flex-direction: column;
-      // justify-content: space-around;
-      // flex-basis: 40px;
-      width: 40px;
-    }
-
-    video::-webkit-media-controls {
-      display: flex;
-      justify-content: flex-start;
+      align-self: flex-end;
+      // flex-basis: 35px;
+      background-color: rgba($red, 0.6);
     }
 
     /* Could Use thise as well for Individual Controls */
