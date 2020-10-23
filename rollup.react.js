@@ -37,5 +37,5 @@ export default {
     commonjs(),
   ],
 
-  external: ["react", "react-dom", "react-image", "prop-types", "marked"],
+  external: ["react", "react-dom", "prop-types", "marked"],
 };

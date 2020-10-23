@@ -1,33 +1,9 @@
 import React from "react";
-import Img from "react-image";
 
 import { Spinner } from "../../../atoms/Spinner.React";
 import { typeForPath } from "../../../utils";
 
 const CardSource = ({ source, isLoading, onClickHandler }) => {
-  // function renderIconText(type) {
-  //   switch (type) {
-  //     case "Eyewitness Testimony":
-  //       return "visibility";
-  //     case "Government Data":
-  //       return "public";
-  //     case "Satellite Imagery":
-  //       return "satellite";
-  //     case "Second-Hand Testimony":
-  //       return "visibility_off";
-  //     case "Video":
-  //       return "videocam";
-  //     case "Photo":
-  //       return "photo";
-  //     case "Photobook":
-  //       return "photo_album";
-  //     case "Document":
-  //       return "picture_as_pdf";
-  //     default:
-  //       return "help";
-  //   }
-  // }
-
   if (!source) {
     return (
       <div className="card-source">
@@ -56,15 +32,14 @@ const CardSource = ({ source, isLoading, onClickHandler }) => {
       ) : (
         <div className="source-row" onClick={() => onClickHandler(source)}>
           {thumbnail ? (
-            <Img
+            <img
               className="source-icon"
               src={thumbnail}
-              loader={<Spinner small />}
-              width={30}
-              height={30}
+              style={{ width: 30, height: 30 }}
+              alt={"source icon thumbnail"}
             />
           ) : null}
-          <p>{source.title ? source.title : source.id}</p>
+          <div>{source.title ? source.title : source.id}</div>
         </div>
       )}
     </div>
