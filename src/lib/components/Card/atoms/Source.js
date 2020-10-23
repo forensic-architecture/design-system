@@ -4,29 +4,6 @@ import { Spinner } from "../../../atoms/Spinner.React";
 import { typeForPath } from "../../../utils";
 
 const CardSource = ({ source, isLoading, onClickHandler }) => {
-  function sourceType(type) {
-    switch (type) {
-      case "Eyewitness Testimony":
-        return "Eyewitness";
-      case "Government Data":
-        return "Gov";
-      case "Satellite Imagery":
-        return "Sat";
-      case "Second-Hand Testimony":
-        return "Testimony (2nd hand)";
-      case "Video":
-        return "Video";
-      case "Photo":
-        return "Pic";
-      case "Photobook":
-        return "Photo";
-      case "Document":
-        return "Doc";
-      default:
-        return "";
-    }
-  }
-
   if (!source) {
     return (
       <div className="card-source">
@@ -62,10 +39,7 @@ const CardSource = ({ source, isLoading, onClickHandler }) => {
               alt={"source icon thumbnail"}
             />
           ) : null}
-          <div>
-            <span className="source-type">{sourceType(source.type)} /</span>
-            {source.title ? source.title : source.id}
-          </div>
+          <div>{source.title ? source.title : source.id}</div>
         </div>
       )}
     </div>
