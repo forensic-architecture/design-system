@@ -1,11 +1,16 @@
 {
-  "name": "fa-design-system",
-  "private": true,
-  "description": "Forensic Architecture's React component library",
+  "name": "@forensic-architecture/design-system",
+  "description": "Forensic Architecture's component library",
+  "keywords": [
+    "visualization"
+  ],
   "license": "Do No Harm",
   "version": "0.2.0",
   "type": "module",
   "main": "./dist/react.js",
+  "files": [
+    "dist/**/*.js"
+  ],
   "browser": {
     "./react": "./dist/react.js",
     "./vue": "./dist/vue.js"
@@ -27,7 +32,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:app": "react-scripts start",
-    "start:storybook": "start-storybook -p 6006 -s public"
+    "start:storybook": "start-storybook -p 6006 -s public",
+    "prepublishOnly": "",
+    "postpublish": ""
   },
   "eslintConfig": {
     "extends": "react-app"

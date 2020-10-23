@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card } from "fa-design-system/react";
+import { Button, Card } from "@forensic-architecture/design-system";
 // import "fa-design-system/dist/index.css";
 
 // import logo from "./logo.svg";
