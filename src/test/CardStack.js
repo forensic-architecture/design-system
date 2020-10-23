@@ -1,0 +1,177 @@
+export const CardStackProps = {
+  timelineDims: {
+    height: 250,
+    width: 0,
+    marginLeft: 100,
+    marginTop: 15,
+    marginBottom: 60,
+    contentHeight: 200,
+    width_controls: 100,
+  },
+  narrative: null,
+  selected: [
+    {
+      associations: ["Tear gas", "Confirmed Press", "Focus", "Journalist"],
+      sources: [
+        {
+          paths: [
+            "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/42.mp4",
+          ],
+          id: "source42",
+          title: "David Sachs - CPR News",
+          type: "",
+          description:
+            "A police officer shoves Sachs after he showed him his press pass. The police then fire tear gas, and Sachs is caught up in the cloud.",
+          url: "https://twitter.com/DavidASachs/status/1266920122893156353",
+        },
+      ],
+      description:
+        "A police officer shoves Sachs after he showed him his press pass. The police then fire tear gas, and Sachs is caught up in the cloud.",
+      date: "05/30/2020",
+      datetime: new Date(2020, 1, 28),
+      time: "18:31",
+      location: "Denver, CO",
+      // latitude: "39.73843",
+      // longitude: "-104.98614",
+      category: "Press attack",
+      // colour: "#F7D4BC",
+      journalist_name: "David Sachs",
+      news_organisation: "CPR News",
+      id: 40,
+    },
+    {
+      associations: ["Permissive to far-right", "Militia insignia"],
+      sources: [
+        {
+          paths: ["https://twitter.com/DavidASachs/status/1266920122893156353"],
+          id: "source42",
+          title: "John Doe",
+          type: "",
+          description: "lorem ipsum",
+          url: "https://twitter.com/DavidASachs/status/1266920122893156353",
+        },
+      ],
+      description:
+        "Officers posing with individuals who appear to be member of the Three Percenters militia group.",
+      date: "6/5/2020",
+      time: "",
+      location: "Olympia, WA",
+      latitude: "47.047481",
+      longitude: "-122.93928",
+      category: "Civilian",
+      colour: "#N/A",
+      news_organisation: "",
+      journalist_name: "",
+      id: 265,
+      datetime: new Date(2020, 1, 28),
+    },
+    {
+      associations: ["Arrest/Detention"],
+      sources: [null, null],
+      description:
+        "A large group of officers arrest a woman who allegedly assaulted an officer at a protest earlier. ",
+      date: "6/5/2020",
+      time: "",
+      location: "Seattle, WA",
+      latitude: "47.6062",
+      longitude: "-122.3321",
+      category: "Civilian",
+      colour: "#C98BB9",
+      news_organisation: "",
+      journalist_name: "",
+      id: 263,
+      datetime: new Date(2020, 1, 28),
+    },
+    {
+      associations: ["Other"],
+      sources: [
+        {
+          paths: [
+            "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/118.jpg",
+          ],
+          id: "source42",
+          title: "John Doe",
+          type: "",
+          description: "lorem ipsum",
+          url:
+            "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/118.jpg",
+        },
+      ],
+      description:
+        "Civilians clear a path for an ambulance to get through, while police officers refuse to unblock the road. ",
+      date: "6/5/2020",
+      time: "",
+      location: "Seattle, WA",
+      latitude: "47.6153",
+      longitude: "-122.317714",
+      category: "Civilian",
+      colour: "#40BCD8",
+      news_organisation: "",
+      journalist_name: "",
+      id: 257,
+      datetime: new Date(2020, 1, 28),
+    },
+    {
+      associations: ["Other"],
+      sources: [
+        {
+          paths: [
+            "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/114.mp4",
+          ],
+          id: "source42",
+          title: "John Doe",
+          type: "",
+          description: "lorem ipsum",
+          url:
+            "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/114.mp4",
+        },
+      ],
+      description:
+        "Civilians clear a path for an ambulance to get through, while police officers refuse to unblock the road. ",
+      date: "6/5/2020",
+      time: "",
+      location: "Seattle, WA",
+      latitude: "47.6153",
+      longitude: "-122.317714",
+      category: "Civilian",
+      colour: "#40BCD8",
+      news_organisation: "",
+      journalist_name: "",
+      id: 257,
+      datetime: new Date(2020, 1, 28),
+    },
+    {
+      associations: ["Arrest/Detention"],
+      sources: [
+        {
+          paths: [
+            "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/143.jpg",
+          ],
+          id: "source42",
+          title: "John Doe",
+          type: "",
+          description: "lorem ipsum",
+          url:
+            "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/143.jpg",
+        },
+      ],
+      description:
+        "Video of protesters being arrested and put into police vans. ",
+      date: "6/5/2020",
+      time: "",
+      location: "New York City, NY",
+      latitude: "40.66623",
+      longitude: "-73.950891",
+      category: "Civilian",
+      colour: "#C98BB9",
+      news_organisation: "",
+      journalist_name: "",
+      id: 256,
+      datetime: new Date(2020, 1, 28),
+    },
+  ],
+  sourceError: false,
+  language: "en-US",
+  isCardstack: true,
+  isLoading: false,
+};
