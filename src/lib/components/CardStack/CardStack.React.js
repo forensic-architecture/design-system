@@ -5,24 +5,6 @@ import copy from "../../data/copy.json";
 import { scrollToElement } from "../../utils";
 
 export const CardStack = ({
-  features = {
-    USE_CATEGORIES: true,
-    CATEGORIES_AS_FILTERS: false,
-    USE_ASSOCIATIONS: true,
-    USE_SOURCES: true,
-    USE_COVER: true,
-    USE_SEARCH: false,
-    USE_SITES: false,
-    NARRATIVE_STEP_STYLES: false,
-    CUSTOM_EVENT_FIELDS: [],
-    CUSTOM_SOURCE_FIELDS: [],
-    USE_SHAPES: false,
-    GRAPH_NONLOCATED: false,
-    HIGHLIGHT_GROUPS: false,
-  },
-  getCategoryGroup = () => {},
-  getCategoryColor = () => {},
-  getCategoryLabel = () => {},
   isCardstack = true,
   isLoading = false,
   language = `en-US`,
@@ -85,14 +67,10 @@ export const CardStack = ({
           language={language}
           isLoading={isLoading}
           isSelected={selections[idx]}
-          getCategoryGroup={getCategoryGroup}
-          getCategoryColor={getCategoryColor}
-          getCategoryLabel={getCategoryLabel}
           onViewSource={onViewSource}
           onHighlight={onHighlight}
           onSelect={onSelect}
           idx={idx}
-          features={features}
           inlineMedia={event?.sources[0]?.paths}
         />
       );

@@ -8,11 +8,6 @@ export const CardStackProps = {
     contentHeight: 200,
     width_controls: 100,
   },
-  // onViewSource: "ƒ bound handleViewSource() {}",
-  // onSelect: "ƒ bound handleSelect() {}",
-  // onHighlight: "ƒ bound handleHighlight() {}",
-  // onToggleCardstack: "ƒ onToggleCardstack() {}",
-  // getCategoryColor: "ƒ bound getCategoryColor() {}",
   narrative: null,
   selected: [
     {
@@ -179,45 +174,4 @@ export const CardStackProps = {
   language: "en-US",
   isCardstack: true,
   isLoading: false,
-  features: {
-    USE_CATEGORIES: true,
-    CATEGORIES_AS_FILTERS: false,
-    USE_ASSOCIATIONS: true,
-    USE_SOURCES: true,
-    USE_COVER: true,
-    USE_SEARCH: false,
-    USE_SITES: false,
-    NARRATIVE_STEP_STYLES: false,
-    CUSTOM_EVENT_FIELDS: [
-      {
-        key: "journalist_name",
-        title: "Name of reporter/s",
-        icon: "face",
-        kind: "text",
-      },
-      {
-        key: "news_organisation",
-        title: "Network",
-        icon: "business",
-        kind: "text",
-      },
-    ],
-    CUSTOM_SOURCE_FIELDS: [
-      {
-        key: "journalist_name",
-        title: "Name of reporter/s",
-        icon: "face",
-        kind: "text",
-      },
-      {
-        key: "news_organisation",
-        title: "Network",
-        icon: "business",
-        kind: "text",
-      },
-    ],
-    USE_SHAPES: false,
-    GRAPH_NONLOCATED: false,
-    HIGHLIGHT_GROUPS: false,
-  },
 };
