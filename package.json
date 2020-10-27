@@ -5,9 +5,9 @@
     "visualization"
   ],
   "license": "Do No Harm",
-  "version": "0.2.0",
-  "type": "module",
+  "version": "0.4.0",
   "main": "./dist/react.js",
+  "module": "./dist/react.esm.js",
   "files": [
     "dist/**/*.js"
   ],
@@ -19,25 +19,19 @@
     "type": "git",
     "url": "https://github.com/forensic-architecture/design-system"
   },
-  "dependencies": {
-    "marked": "^1.1.1"
-  },
   "scripts": {
     "clean": "rimraf dist",
+    "build:all": "npm run build:vue:lib && npm run build:react:lib",
     "build:react:lib": "rollup -c rollup.react.js",
     "build:vue:lib": "rollup -c rollup.vue.js",
     "build:react:watch": "npm run build:react:lib -- -w",
     "build:vue:watch": "npm run build:vue:lib -- -w",
     "build:react:storybook": "build-storybook -s public",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "start:app": "react-scripts start",
     "start:storybook": "start-storybook -p 6006 -s public",
-    "prepublishOnly": "",
+    "test:pack": "npm pack && tar -xvzf _.tgz && rm -rf package _.tg",
+    "prepublishOnly": "npm run build:all",
     "postpublish": ""
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -51,9 +45,13 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "marked": "^1.1.1"
+  },
   "peerDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "prop-types": "^15.7.2",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
     "vue": "^2.6.12"
   },
   "devDependencies": {
@@ -82,10 +80,12 @@
     "@vue/compiler-sfc": "^3.0.0-rc.10",
     "babel-loader": "^8.1.0",
     "babel-plugin-macros": "^2.8.0",
+    "babel-preset-react": "^6.24.1",
     "cross-env": "^7.0.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.4",
     "node-sass": "^4.14.1",
+    "path": "^0.12.7",
     "postcss-modules": "^3.2.2",
     "prettier": "2.1.1",
     "react": "^16.13.1",
