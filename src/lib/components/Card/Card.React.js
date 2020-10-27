@@ -29,9 +29,10 @@ export const Card = ({
   sourceError = false,
   useSources = true,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
+  const isOpen = false;
+  const toggle = () => {};
+  // const [isOpen, setIsOpen] = useState(false);
+  // const toggle = () => setIsOpen(!isOpen);
 
   const renderSummary = () => {
     return (

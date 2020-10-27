@@ -2,9 +2,10 @@
 @import "card";
 
 .card-stack {
+  // position: relative;
   position: absolute;
-  top: $card-right;
-  right: $card-right;
+  // top: $card-right;
+  // right: $card-right;
   max-height: calc(100% - 180px);
   height: auto;
   width: $card-width;
