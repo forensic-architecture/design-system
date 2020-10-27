@@ -20,17 +20,21 @@ export const Card = ({
     type: ``,
     sources: [],
   },
-  inlineMedia = false,
   isLoading = true,
   isSelected = false,
   language = ``,
+  renderOrder = [
+    [`renderTime`, `renderLocation`],
+    [`renderSummary`],
+    [`renderCustomFields`],
+  ],
+  renderExtra = [[`renderSources`]],
   onSelect = () => {},
   onViewSource = () => {},
   sourceError = false,
   useSources = true,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
 
   const renderSummary = () => {
@@ -73,7 +77,7 @@ export const Card = ({
     );
   };
 
-  // NB: should be internaionalized.
+  // NB: should be internationalized.
   const renderTime = () => {
     let timelabel = makeNiceDate(event.datetime);
 
@@ -96,10 +100,10 @@ export const Card = ({
   };
 
   const renderContextual = () => (
-    <div className="card-row">
+    <>
       {renderTime()}
       {renderLocation()}
-    </div>
+    </>
   );
 
   const renderMain = () => {
@@ -114,31 +118,25 @@ export const Card = ({
     );
   };
 
-  const renderExtra = () => {
-    return <div className="card-bottomhalf">{renderSources()}</div>;
-  };
+  // const renderExtra = () => {
+  //   return <div className="card-bottomhalf">{renderSources()}</div>;
+  // };
 
   const renderCaret = () =>
     useSources && <CardCaret toggle={() => toggle()} isOpen={isOpen} />;
 
-  const renderText = () => {
-    return (
-      <>
-        {renderMain()}
-        {isOpen && renderExtra()}
-        {isSelected ? renderCaret() : null}
-      </>
-    );
+  const renderMedia = (fn = []) => {
+    return <CardMedia src={event.sources[0].paths[0]} />;
   };
 
-  const renderMedia = (fn = []) => {
-    return (
-      <>
-        {fn.map((f) => f())}
-        <br />
-        {true && <CardMedia src={event.sources[0].paths[0]} />}
-      </>
-    );
+  const renderFunctions = {
+    renderSummary,
+    renderLocation,
+    renderSources,
+    renderTime,
+    renderCustomFields,
+    renderContextual,
+    renderMedia,
   };
 
   return (
@@ -146,8 +144,19 @@ export const Card = ({
       className={`event-card ${isSelected ? "selected" : ""}`}
       onClick={onSelect}
     >
-      {!inlineMedia && renderText()}
-      {inlineMedia && renderMedia([renderContextual, renderSummary])}
+      {renderOrder.map((row) => (
+        <div className="card-row">{row.map((f) => renderFunctions[f]())}</div>
+      ))}
+      {isOpen && (
+        <div className="card-bottomhalf">
+          {renderExtra.map((row) => (
+            <div className="card-row">
+              {row.map((f) => renderFunctions[f]())}
+            </div>
+          ))}
+        </div>
+      )}
+      {isSelected && renderExtra.length ? renderCaret() : null}
     </li>
   );
 };

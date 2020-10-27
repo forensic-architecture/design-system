@@ -19,49 +19,52 @@ const changeMediaSrc = (event, link) => ({
 export const TextOnly = Template.bind({});
 TextOnly.args = {
   ...CardProps,
-  inlineMedia: false,
 };
 
 export const InlineVideoPortrait = Template.bind({});
 InlineVideoPortrait.args = {
   ...CardProps,
-  inlineMedia: true,
+  renderOrder: [[`renderContextual`], [`renderMedia`], [`renderSummary`]],
+  renderExtra: [],
 };
 
 export const InlineVideoLandscape = Template.bind({});
 InlineVideoLandscape.args = {
   ...CardProps,
+  renderOrder: [[`renderContextual`], [`renderMedia`], [`renderSummary`]],
+  renderExtra: [],
   event: {
     ...changeMediaSrc(
       CardProps.event,
       `https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/114.mp4`
     ),
   },
-  inlineMedia: true,
 };
 
 export const InlinePicturePortrait = Template.bind({});
 InlinePicturePortrait.args = {
   ...CardProps,
+  renderOrder: [[`renderContextual`], [`renderMedia`], [`renderSummary`]],
+  renderExtra: [],
   event: {
     ...changeMediaSrc(
       CardProps.event,
       `https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/118.jpg`
     ),
   },
-  inlineMedia: true,
 };
 
 export const InlinePictureLandscape = Template.bind({});
 InlinePictureLandscape.args = {
   ...CardProps,
+  renderOrder: [[`renderContextual`], [`renderMedia`], [`renderSummary`]],
+  renderExtra: [],
   event: {
     ...changeMediaSrc(
       CardProps.event,
       `https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/143.jpg`
     ),
   },
-  inlineMedia: true,
 };
 
 export default {

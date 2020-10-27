@@ -1,10 +1,11 @@
 import React from "react";
-import { Button, Card } from "@forensic-architecture/design-system";
+import { Button, Card, CardStack } from "@forensic-architecture/design-system";
 // import "fa-design-system/dist/index.css";
 
 // import logo from "./logo.svg";
 import "./App.css";
 import { CardProps } from "./test/Card";
+import { CardStackProps } from "./test/CardStack";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       </header>
       <Button primary label={"Button"} />
       <Card {...CardProps} />
+      <CardStack {...CardStackProps} />
     </div>
   );
 }
