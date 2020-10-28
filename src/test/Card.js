@@ -13,7 +13,25 @@ export const CardProps = {
       },
     ],
     [
-      { kind: "text", title: "Name of reporter(s)", value: "Zac Ioannidis" },
+      {
+        kind: "button",
+        title: "Associations",
+        value: [
+          {
+            text: "Tear Gas",
+            color: null,
+            onClick: () => {
+              console.log("hello");
+            },
+          },
+          { text: "Confirmed Press", color: null },
+          { text: "Focus", color: null },
+          { text: "Journalist", color: null },
+        ],
+      },
+    ],
+    [
+      { kind: "text", title: "Name of reporter(s)", value: "" },
       { kind: "text", title: "Network", value: "CNN" },
     ],
     [{ kind: "text", title: "Category", value: "Press attack" }],

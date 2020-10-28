@@ -4,13 +4,20 @@ import PropTypes from "prop-types";
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
+export const Button = ({
+  primary,
+  backgroundColor,
+  borderRadius,
+  size,
+  label,
+  ...props
+}) => {
   const mode = primary ? "button--primary" : "button--secondary";
   return (
     <button
       type="button"
       className={["button", `button--${size}`, mode].join(" ")}
-      style={backgroundColor && { backgroundColor }}
+      style={{ backgroundColor: backgroundColor, borderRadius: borderRadius }}
       {...props}
     >
       {label}
@@ -28,6 +35,10 @@ Button.propTypes = {
    */
   backgroundColor: PropTypes.string,
   /**
+   * How much rounded are they?
+   */
+  borderRadius: PropTypes.string,
+  /**
    * How large should the button be?
    */
   size: PropTypes.oneOf(["small", "medium", "large"]),
@@ -42,7 +53,8 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  backgroundColor: 'red',
+  backgroundColor: "red",
+  borderRadius: "0%",
   primary: false,
   size: "medium",
   onClick: undefined,

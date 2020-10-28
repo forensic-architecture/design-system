@@ -23,3 +23,5 @@ export function makeNiceDate(datetime) {
 
   return `${day} ${month} ${year}`;
 }
+
+export const isEmptyString = (s) => s.length === 0;
