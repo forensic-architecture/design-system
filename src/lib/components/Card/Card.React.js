@@ -5,6 +5,7 @@ import CardTime from "./atoms/Time";
 import { CardLocation, CardLocationPrecision } from "./atoms/Location";
 import CardButton from "./atoms/Button";
 import CardCaret from "./atoms/Caret";
+import CardCustom from "./atoms/CustomField";
 import CardSummary from "./atoms/Summary";
 import CardSource from "./atoms/Source";
 import CardMedia from "./atoms/Media";
@@ -40,6 +41,8 @@ export const Card = ({
       case "item":
         // this is like a span
         return null;
+      case "markdown":
+        return <CardCustom {...field} />;
       case "tag":
         return (
           <div

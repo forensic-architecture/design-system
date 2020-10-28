@@ -27,7 +27,16 @@ export const CardProps = {
           },
           { text: "Confirmed Press", color: null },
           { text: "Focus", color: null },
-          { text: "Journalist", color: null },
+        ],
+      },
+      {
+        kind: "button",
+        title: "Against",
+        value: [
+          {
+            text: "Journalist",
+            color: null,
+          },
         ],
       },
     ],
@@ -52,6 +61,13 @@ export const CardProps = {
         kind: "list",
         title: "Filters",
         value: ["Tear gas", "Confirmed Press", "Focus", "Journalist"],
+      },
+    ],
+    [
+      {
+        kind: "markdown",
+        title: "Markdown",
+        value: "**I** point to a [link](#)",
       },
     ],
   ],

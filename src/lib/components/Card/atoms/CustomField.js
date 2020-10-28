@@ -1,13 +1,11 @@
 import React from "react";
 import marked from "marked";
 
-const CardCustomField = ({ field, value }) => (
+// TODO could this be a security vulnerability?
+const CardCustomField = ({ title, value }) => (
   <div className="card-cell">
-    <>
-      {/* <i className="material-icons left">{field.icon}</i> */}
-      <h4>{field.title ? `${field.title}: ` : "- "}</h4>
-      {field.kind === "text" ? value : marked(`[${value}](${field.value})`)}
-    </>
+    {title ? <h4>{title}</h4> : null}
+    <div dangerouslySetInnerHTML={{ __html: marked(`${value}`) }} />
   </div>
 );
 
