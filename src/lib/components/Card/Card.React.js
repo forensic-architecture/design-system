@@ -2,13 +2,9 @@ import React, { useState } from "react";
 
 import CardText from "./atoms/Text";
 import CardTime from "./atoms/Time";
-import { CardLocation, CardLocationPrecision } from "./atoms/Location";
 import CardButton from "./atoms/Button";
 import CardCaret from "./atoms/Caret";
 import CardCustom from "./atoms/CustomField";
-import CardSummary from "./atoms/Summary";
-import CardSource from "./atoms/Source";
-import CardMedia from "./atoms/Media";
 
 import copy from "../../data/copy.json";
 import { makeNiceDate, isEmptyString } from "../../utils";
