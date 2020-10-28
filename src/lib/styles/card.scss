@@ -43,7 +43,9 @@
   .card-col,
   .card-cell {
     margin: 5px 0;
-    // padding-bottom: 10px;
+    &.m0 {
+      margin: 0;
+    }
   }
 
   .card-row,
@@ -257,4 +259,7 @@
   .card-row {
     border-color: darkgray;
   }
+
 }
+
+
