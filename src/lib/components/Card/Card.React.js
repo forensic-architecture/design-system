@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import CardCustomField from "./atoms/CustomField";
 import CardTime from "./atoms/Time";
-import CardLocation from "./atoms/Location";
+import { CardLocation, CardLocationPrecision } from "./atoms/Location";
 import CardCaret from "./atoms/Caret";
 import CardSummary from "./atoms/Summary";
 import CardSource from "./atoms/Source";
@@ -57,6 +57,61 @@ export const Card = ({
     );
   };
 
+  const renderLocationPrecision = () => {
+    return <CardLocationPrecision type={event["location_precision"]} />;
+  };
+
+  const renderNetwork = () => {
+    return (
+      // <div className="card-col">
+      event["news_organisation"] && (
+        <div className="card-cell">
+          <>
+            <h4>Network</h4>
+            {event["news_organisation"]}
+          </>
+        </div>
+      )
+    );
+  };
+
+  const renderReporter = () => {
+    return (
+      // <div className="card-col">
+      event["journalist_name"] && (
+        <div className="card-cell">
+          <>
+            <h4>Name of Reporter/s</h4>
+            {event["journalist_name"]}
+          </>
+        </div>
+      )
+    );
+  };
+
+  // TODO make boolean in backend
+  // TODO Add source URL
+  const renderUSProtestsSource = () => {
+    return (
+      <>
+        <h4>Source</h4>
+        <div>
+          {event["hide_source"] === `TRUE` ? (
+            <span>
+              Source hidden to protect the privacy and dignity of civilians.
+              Read more{" "}
+              <a href="https://staging.forensic-architecture.org/wp-content/uploads/2020/09/2020.14.09-FA-Bcat-Mission-Statement.pdf">
+                here
+              </a>
+            </span>
+          ) : (
+            <span>TODO: Add source URL</span>
+          )}
+        </div>
+      </>
+    );
+  };
+
   const renderSources = () => {
     if (sourceError) {
       return <div>ERROR: something went wrong loading sources, TODO:</div>;
@@ -90,6 +145,15 @@ export const Card = ({
     );
   };
 
+  const renderAssociations = () => {
+    return (
+      <div>
+        <h4>Type of violation</h4>
+        <span>{event.associations.join(" / ")}</span>
+      </div>
+    );
+  };
+
   const renderCustomFields = () => {
     return customEventFields.map((field) => {
       const value = event[field.key];
@@ -106,17 +170,17 @@ export const Card = ({
     </>
   );
 
-  const renderMain = () => {
-    // return null;
-    return (
-      <>
-        {renderContextual()}
-        {/* <br /> */}
-        {renderSummary()}
-        {renderCustomFields()}
-      </>
-    );
-  };
+  // const renderMain = () => {
+  //   // return null;
+  //   return (
+  //     <>
+  //       {renderContextual()}
+  //       {/* <br /> */}
+  //       {renderSummary()}
+  //       {renderCustomFields()}
+  //     </>
+  //   );
+  // };
 
   // const renderExtra = () => {
   //   return <div className="card-bottomhalf">{renderSources()}</div>;
@@ -129,14 +193,33 @@ export const Card = ({
     return <CardMedia src={event.sources[0].paths[0]} />;
   };
 
+  // TODO make renderList and renderListInline curried functions
+  const renderLawEnforcementAgencies = () => {
+    return event["le_agencys"].length ? (
+      <div>
+        <h4>Law Enforcement Agencies</h4>
+        {event["le_agencys"].map((item, idx) => (
+          <div key={`le_agencies_${idx}`}>{item}</div>
+        ))}
+      </div>
+    ) : null;
+  };
+
   const renderFunctions = {
-    renderSummary,
-    renderLocation,
-    renderSources,
-    renderTime,
+    // renderIncidentId,
+    renderAssociations,
     renderCustomFields,
     renderContextual,
+    renderLawEnforcementAgencies,
+    renderLocation,
+    renderLocationPrecision,
     renderMedia,
+    renderNetwork,
+    renderReporter,
+    renderUSProtestsSource,
+    renderSources,
+    renderSummary,
+    renderTime,
   };
 
   return (
