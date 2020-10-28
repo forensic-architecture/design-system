@@ -1,10 +1,17 @@
 export const CardProps = {
   content: [
     [{ kind: "tag", align: "end", value: 235 }],
+    [{ kind: "line" }],
     [
       { kind: "date", title: "Timestamp", value: new Date(2020, 1, 28) },
-      { kind: "text", title: "Location", value: "Denver, CO" },
+      {
+        kind: "text",
+        title: "Location",
+        hoverValue: "Location uncertain",
+        value: "Denver, CO",
+      },
     ],
+    [{ kind: "line-break", times: 0.4 }],
     [
       {
         kind: "text",
@@ -13,6 +20,7 @@ export const CardProps = {
           "A police officer shoves Sachs after he showed him his press pass. The police then fire tear gas, and Sachs is caught up in the cloud.",
       },
     ],
+    [{ kind: "line-break", times: 0.8 }],
     [
       {
         kind: "button",
@@ -40,6 +48,7 @@ export const CardProps = {
         ],
       },
     ],
+    [{ kind: "line-break", times: 0.4 }],
     [
       { kind: "text", title: "Name of reporter(s)", value: "Zac Ioannidis" },
       { kind: "text", title: "Network", value: "CNN" },

@@ -26,7 +26,11 @@ export const Card = ({
 
   // NB: should be internationalized.
   const renderTime = (field) => (
-    <CardTime language={language} timelabel={makeNiceDate(field.value)} />
+    <CardTime
+      language={language}
+      timelabel={makeNiceDate(field.value)}
+      {...field}
+    />
   );
 
   const renderCaret = () =>
@@ -38,6 +42,16 @@ export const Card = ({
     switch (field.kind) {
       case "media":
         return null;
+      case "line":
+        return (
+          <div style={{ height: `1rem`, width: `100%` }}>
+            <hr />
+          </div>
+        );
+      case "line-break":
+        return (
+          <div style={{ height: `${field.times || 1}rem`, width: `100%` }} />
+        );
       case "item":
         // this is like a span
         return null;
@@ -97,11 +111,12 @@ export const Card = ({
           !!field.value.length &&
           !!field.value.filter((s) => !isEmptyString(s)).length;
         return shouldFieldRender ? (
-          <div className="card-cell">
+          // <div className="card-cell">
+          <div>
             {field.title && <h4>{field.title}</h4>}
             <div className="card-row m0">
               {field.value.map((t, idx) => (
-                <CardText key={`card-list-text-${idx}`} value={t} />
+                <CardText key={`card-list-text-${idx}`} value={t} {...t} />
               ))}
             </div>
           </div>
