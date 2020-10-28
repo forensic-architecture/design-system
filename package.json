@@ -5,7 +5,7 @@
     "visualization"
   ],
   "license": "Do No Harm",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "main": "./dist/react.js",
   "module": "./dist/react.esm.js",
   "files": [
