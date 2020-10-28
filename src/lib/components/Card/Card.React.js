@@ -61,6 +61,57 @@ export const Card = ({
     return <CardLocationPrecision type={event["location_precision"]} />;
   };
 
+  const renderNetwork = () => {
+    return (
+      // <div className="card-col">
+      event["news_organisation"] && (
+        <div className="card-cell">
+          <>
+            <h4>Network</h4>
+            {event["news_organisation"]}
+          </>
+        </div>
+      )
+    );
+  };
+
+  const renderReporter = () => {
+    return (
+      // <div className="card-col">
+      event["journalist_name"] && (
+        <div className="card-cell">
+          <>
+            <h4>Name of Reporter/s</h4>
+            {event["journalist_name"]}
+          </>
+        </div>
+      )
+    );
+  };
+
+  // TODO make boolean in backend
+  // TODO Add source URL
+  const renderUSProtestsSource = () => {
+    return (
+      <>
+        <h4>Source</h4>
+        <div>
+          {event["hide_source"] === `TRUE` ? (
+            <span>
+              Source hidden to protect the privacy and dignity of civilians.
+              Read more{" "}
+              <a href="https://staging.forensic-architecture.org/wp-content/uploads/2020/09/2020.14.09-FA-Bcat-Mission-Statement.pdf">
+                here
+              </a>
+            </span>
+          ) : (
+            <span>TODO: Add source URL</span>
+          )}
+        </div>
+      </>
+    );
+  };
+
   const renderSources = () => {
     if (sourceError) {
       return <div>ERROR: something went wrong loading sources, TODO:</div>;
@@ -163,6 +214,9 @@ export const Card = ({
     renderLocation,
     renderLocationPrecision,
     renderMedia,
+    renderNetwork,
+    renderReporter,
+    renderUSProtestsSource,
     renderSources,
     renderSummary,
     renderTime,
