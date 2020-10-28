@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import CardCustomField from "./atoms/CustomField";
 import CardTime from "./atoms/Time";
-import CardLocation from "./atoms/Location";
+import { CardLocation, CardLocationPrecision } from "./atoms/Location";
 import CardCaret from "./atoms/Caret";
 import CardSummary from "./atoms/Summary";
 import CardSource from "./atoms/Source";
@@ -57,6 +57,10 @@ export const Card = ({
     );
   };
 
+  const renderLocationPrecision = () => {
+    return <CardLocationPrecision type={event["location_precision"]} />;
+  };
+
   const renderSources = () => {
     if (sourceError) {
       return <div>ERROR: something went wrong loading sources, TODO:</div>;
@@ -90,6 +94,15 @@ export const Card = ({
     );
   };
 
+  const renderAssociations = () => {
+    return (
+      <div>
+        <h4>Type of violation</h4>
+        <span>{event.associations.join(" / ")}</span>
+      </div>
+    );
+  };
+
   const renderCustomFields = () => {
     return customEventFields.map((field) => {
       const value = event[field.key];
@@ -106,17 +119,17 @@ export const Card = ({
     </>
   );
 
-  const renderMain = () => {
-    // return null;
-    return (
-      <>
-        {renderContextual()}
-        {/* <br /> */}
-        {renderSummary()}
-        {renderCustomFields()}
-      </>
-    );
-  };
+  // const renderMain = () => {
+  //   // return null;
+  //   return (
+  //     <>
+  //       {renderContextual()}
+  //       {/* <br /> */}
+  //       {renderSummary()}
+  //       {renderCustomFields()}
+  //     </>
+  //   );
+  // };
 
   // const renderExtra = () => {
   //   return <div className="card-bottomhalf">{renderSources()}</div>;
@@ -129,14 +142,30 @@ export const Card = ({
     return <CardMedia src={event.sources[0].paths[0]} />;
   };
 
+  // TODO make renderList and renderListInline curried functions
+  const renderLawEnforcementAgencies = () => {
+    return event["le_agencys"].length ? (
+      <div>
+        <h4>Law Enforcement Agencies</h4>
+        {event["le_agencys"].map((item, idx) => (
+          <div key={`le_agencies_${idx}`}>{item}</div>
+        ))}
+      </div>
+    ) : null;
+  };
+
   const renderFunctions = {
-    renderSummary,
-    renderLocation,
-    renderSources,
-    renderTime,
+    // renderIncidentId,
+    renderAssociations,
     renderCustomFields,
     renderContextual,
+    renderLawEnforcementAgencies,
+    renderLocation,
+    renderLocationPrecision,
     renderMedia,
+    renderSources,
+    renderSummary,
+    renderTime,
   };
 
   return (
