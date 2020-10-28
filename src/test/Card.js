@@ -1,14 +1,29 @@
 export const CardProps = {
   content: [
-    [{ kind: 'date', title: 'Timestamp', value: new Date(2020, 1, 28) }, { kind: 'text', value: 'Denver, CO' }],
-    [{
-      kind: 'text',
-      title: 'Summary',
-      value: 'A police officer shoves Sachs after he showed him his press pass. The police then fire tear gas, and Sachs is caught up in the cloud.'
-    }],
-    [{ kind: 'text', title: 'Name of reporter(s)', value: 'Zac Ioannidis' }, { kind: 'text', title: 'Network', value: 'CNN' }],
-    [{ kind: 'text', title: 'Category', value: 'Press attack' }],
-    [{ kind: 'list', title: 'Filters', value: ["Tear gas", "Confirmed Press", "Focus", "Journalist"] }]
+    [
+      { kind: "date", title: "Timestamp", value: new Date(2020, 1, 28) },
+      { kind: "text", title: "Location", value: "Denver, CO" },
+    ],
+    [
+      {
+        kind: "text",
+        title: "Summary",
+        value:
+          "A police officer shoves Sachs after he showed him his press pass. The police then fire tear gas, and Sachs is caught up in the cloud.",
+      },
+    ],
+    [
+      { kind: "text", title: "Name of reporter(s)", value: "Zac Ioannidis" },
+      { kind: "text", title: "Network", value: "CNN" },
+    ],
+    [{ kind: "text", title: "Category", value: "Press attack" }],
+    [
+      {
+        kind: "list",
+        title: "Filters",
+        value: ["Tear gas", "Confirmed Press", "Focus", "Journalist"],
+      },
+    ],
   ],
 
   sources: [],

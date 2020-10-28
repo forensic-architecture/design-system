@@ -17,59 +17,66 @@ export const Card = ({
   onSelect = () => {},
   sources = [],
   isSelected = false,
-  language = "en-US"
+  language = "en-US",
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
   // NB: should be internationalized.
-  const renderTime = field => (
-    <CardTime
-      language={language}
-      timelabel={makeNiceDate(field.value)}
-    />
+  const renderTime = (field) => (
+    <CardTime language={language} timelabel={makeNiceDate(field.value)} />
   );
 
   const renderCaret = () =>
-    sources.length === 0 && <CardCaret toggle={() => toggle()} isOpen={isOpen} />;
+    sources.length === 0 && (
+      <CardCaret toggle={() => toggle()} isOpen={isOpen} />
+    );
 
   function renderField(field) {
     switch (field.kind) {
-      case 'text':
-        return <CardText {...field} />
-      case 'date':
-        return renderTime(field)
-      case 'list':
-        return <div className='card-cell'>
-          {field.title && <h4>{field.title}</h4>}
-          <div className='card-row m0'>
-          {field.value.map(t => <CardText value={t} />)}
+      case "text":
+        return <CardText {...field} />;
+      case "date":
+        return renderTime(field);
+      case "list":
+        return (
+          <div className="card-cell">
+            {field.title && <h4>{field.title}</h4>}
+            <div className="card-row m0">
+              {field.value.map((t) => (
+                <CardText value={t} />
+              ))}
+            </div>
           </div>
-        </div>
+        );
       default:
-        return null
+        return null;
     }
   }
 
   function renderRow(row) {
-    return row.map(field => <div className="card-row">{renderField(field)}</div>)
+    return (
+      <div className="card-row">
+        {row.map((field) => (
+          <>{renderField(field)}</>
+        ))}
+      </div>
+    );
   }
 
   // TODO: render afterCaret appropriately from props
-  sources = []
+  sources = [];
 
   return (
     <li
       className={`event-card ${isSelected ? "selected" : ""}`}
       onClick={onSelect}
     >
-      {content.map(row => renderRow(row))}
+      {content.map((row) => renderRow(row))}
       {isOpen && (
         <div className="card-bottomhalf">
           {sources.map((row) => (
-            <div className="card-row">
-
-            </div>
+            <div className="card-row"></div>
           ))}
         </div>
       )}
