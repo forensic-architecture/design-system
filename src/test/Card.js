@@ -1,5 +1,6 @@
 export const CardProps = {
   content: [
+    [{ kind: "tag", align: "end", value: 235 }],
     [
       { kind: "date", title: "Timestamp", value: new Date(2020, 1, 28) },
       { kind: "text", title: "Location", value: "Denver, CO" },
@@ -31,10 +32,21 @@ export const CardProps = {
       },
     ],
     [
-      { kind: "text", title: "Name of reporter(s)", value: "" },
+      { kind: "text", title: "Name of reporter(s)", value: "Zac Ioannidis" },
       { kind: "text", title: "Network", value: "CNN" },
     ],
-    [{ kind: "text", title: "Category", value: "Press attack" }],
+    [
+      {
+        kind: "links",
+        title: "Sources",
+        value: [
+          {
+            text: "Source 1",
+            href: "#",
+          },
+        ],
+      },
+    ],
     [
       {
         kind: "list",

@@ -40,6 +40,26 @@ export const Card = ({
       case "item":
         // this is like a span
         return null;
+      case "tag":
+        return (
+          <div
+            className="card-cell m0"
+            style={{
+              textTransform: `uppercase`,
+              fontSize: `.8em`,
+              lineHeight: `.8em`,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: `flex-${field.align || `start`}`,
+              }}
+            >
+              {field.value}
+            </div>
+          </div>
+        );
       case "button":
         return (
           <div className="card-cell">
@@ -55,6 +75,19 @@ export const Card = ({
         return !isEmptyString(field.value) && <CardText {...field} />;
       case "date":
         return renderTime(field);
+      case "links":
+        return (
+          <div className="card-cell">
+            {field.title && <h4>{field.title}</h4>}
+            <div className="card-row m0">
+              {field.value.map(({ text, href }, idx) => (
+                <a href={href} key={`card-links-url-${idx}`}>
+                  {text}
+                </a>
+              ))}
+            </div>
+          </div>
+        );
       case "list":
         // Only render if some of the list's strings are non-empty
         const shouldFieldRender =
