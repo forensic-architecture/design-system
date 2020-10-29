@@ -8,6 +8,7 @@
   line-height: 1;
   outline: none;
   text-align: left;
+
 }
 .button--primary {
   color: $offwhite;
@@ -30,4 +31,8 @@
 .button--large {
   font-size: 16px;
   padding: 12px 24px;
+}
+
+.no-hover {
+  cursor: auto !important;
 }

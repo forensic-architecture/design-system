@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../../Button/Button.React";
 
-const CardButton = ({ text, color = "#000", onClick = () => {} }) => (
+const CardButton = ({ text, color = "#000", onClick = () => {}, normalCursor }) => (
   <Button
     size={"small"}
     backgroundColor={color}
@@ -9,6 +9,7 @@ const CardButton = ({ text, color = "#000", onClick = () => {} }) => (
     primary={false}
     label={text}
     onClick={onClick}
+    normalCursor={normalCursor}
   />
 );
 

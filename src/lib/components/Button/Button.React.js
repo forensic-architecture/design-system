@@ -10,13 +10,14 @@ export const Button = ({
   borderRadius,
   size,
   label,
+  normalCursor,
   ...props
 }) => {
   const mode = primary ? "button--primary" : "button--secondary";
   return (
     <button
       type="button"
-      className={["button", `button--${size}`, mode].join(" ")}
+      className={["button", `button--${size}`, mode, normalCursor ? 'no-hover': ''].join(" ")}
       style={{ backgroundColor: backgroundColor, borderRadius: borderRadius }}
       {...props}
     >
