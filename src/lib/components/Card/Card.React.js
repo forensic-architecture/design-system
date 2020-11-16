@@ -5,6 +5,7 @@ import CardTime from "./atoms/Time";
 import CardButton from "./atoms/Button";
 import CardCaret from "./atoms/Caret";
 import CardCustom from "./atoms/CustomField";
+import CardMedia from "./atoms/Media";
 
 import copy from "../../data/copy.json";
 import { makeNiceDate, isEmptyString } from "../../utils";
@@ -34,10 +35,14 @@ export const Card = ({
       <CardCaret toggle={() => toggle()} isOpen={isOpen} />
     );
 
+  const renderMedia = ({ src }) => {
+    return <CardMedia src={src} />;
+  };
+
   function renderField(field) {
     switch (field.kind) {
       case "media":
-        return null;
+        return renderMedia({ src: field.src });
       case "line":
         return (
           <div style={{ height: `1rem`, width: `100%` }}>
