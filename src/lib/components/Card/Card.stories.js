@@ -5,66 +5,42 @@ import { CardProps } from "../../../test/Card";
 
 const Template = (args) => <Card {...args} />;
 
-const changeMediaSrc = (event, link) => ({
-  ...event,
-  sources: [
-    {
-      ...event.sources[0],
-      paths: [link],
-    },
-    ...event.sources,
-  ],
-});
-
 export const TextOnly = Template.bind({});
 TextOnly.args = {
   ...CardProps,
 };
 
-export const InlineVideoPortrait = Template.bind({});
-InlineVideoPortrait.args = {
-  ...CardProps,
-  renderOrder: [[`renderContextual`], [`renderMedia`], [`renderSummary`]],
-  renderExtra: [],
+console.log(CardProps);
+
+const addInlineMedia = (props, src) => {
+  return {
+    ...props,
+    content: [...props.content, [{ kind: "media", src }]],
+  };
 };
 
-export const InlineVideoLandscape = Template.bind({});
-InlineVideoLandscape.args = {
-  ...CardProps,
-  renderOrder: [[`renderContextual`], [`renderMedia`], [`renderSummary`]],
-  renderExtra: [],
-  event: {
-    ...changeMediaSrc(
-      CardProps.event,
-      `https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/114.mp4`
-    ),
-  },
+export const InlineVideoPortrait = Template.bind({});
+InlineVideoPortrait.args = {
+  ...addInlineMedia(
+    CardProps,
+    "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/114.mp4"
+  ),
 };
 
 export const InlinePicturePortrait = Template.bind({});
 InlinePicturePortrait.args = {
-  ...CardProps,
-  renderOrder: [[`renderContextual`], [`renderMedia`], [`renderSummary`]],
-  renderExtra: [],
-  event: {
-    ...changeMediaSrc(
-      CardProps.event,
-      `https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/118.jpg`
-    ),
-  },
+  ...addInlineMedia(
+    CardProps,
+    "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/118.jpg"
+  ),
 };
 
 export const InlinePictureLandscape = Template.bind({});
 InlinePictureLandscape.args = {
-  ...CardProps,
-  renderOrder: [[`renderContextual`], [`renderMedia`], [`renderSummary`]],
-  renderExtra: [],
-  event: {
-    ...changeMediaSrc(
-      CardProps.event,
-      `https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/143.jpg`
-    ),
-  },
+  ...addInlineMedia(
+    CardProps,
+    "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/143.jpg"
+  ),
 };
 
 export default {
