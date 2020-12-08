@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Card } from "./Card.React";
+import { generateCardLayout } from "../../templates";
 import { CardProps } from "../../../test/Card";
 
 const Template = (args) => <Card {...args} />;
@@ -10,13 +11,22 @@ TextOnly.args = {
   ...CardProps,
 };
 
-console.log(CardProps);
-
 const addInlineMedia = (props, src) => {
   return {
     ...props,
     content: [...props.content, [{ kind: "media", src }]],
   };
+};
+
+export const BasicLayoutTemplate = Template.bind({});
+BasicLayoutTemplate.args = {
+  content: generateCardLayout["basic"]({
+    event: {
+      datetime: new Date(),
+      location: `Somewhere`,
+      description: `Something happened`,
+    },
+  }),
 };
 
 export const InlineVideoPortrait = Template.bind({});
