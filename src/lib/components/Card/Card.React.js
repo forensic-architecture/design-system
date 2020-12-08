@@ -7,7 +7,6 @@ import CardCaret from "./atoms/Caret";
 import CardCustom from "./atoms/CustomField";
 import CardMedia from "./atoms/Media";
 
-import copy from "../../data/copy.json";
 import { makeNiceDate, isEmptyString } from "../../utils";
 
 export const Card = ({
