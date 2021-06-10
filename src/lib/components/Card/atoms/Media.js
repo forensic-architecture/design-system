@@ -8,7 +8,7 @@ import { typeForPath } from "../../../utils";
 //    - only show cover image and then lightbox when clicked
 //    - show video control plane?
 // TODO landscape image doesn't fit in box properly
-const Media = ({ src }) => {
+const Media = ({ src, title }) => {
   const videoRef = useRef();
   const onVideoStart = useCallback(() => {
     return videoRef.current?.play();
@@ -23,6 +23,7 @@ const Media = ({ src }) => {
     case "Video":
       return (
         <div className="card-cell media">
+          {title && <h4>{title}</h4>}
           <video
             onMouseEnter={onVideoStart}
             onMouseLeave={onVideoStop}
@@ -38,6 +39,7 @@ const Media = ({ src }) => {
     case "Image":
       return (
         <div className="card-cell media">
+          {title && <h4>{title}</h4>}
           <div className="img-wrapper">
             <img
               src={src}

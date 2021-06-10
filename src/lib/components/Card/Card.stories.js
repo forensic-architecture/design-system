@@ -11,10 +11,10 @@ TextOnly.args = {
   ...CardProps,
 };
 
-const addInlineMedia = (props, src) => {
+const addInlineMedia = (props, media) => {
   return {
     ...props,
-    content: [...props.content, [{ kind: "media", src }]],
+    content: [...props.content, [{ kind: "media", value: media }]],
   };
 };
 
@@ -33,15 +33,33 @@ export const InlineVideoPortrait = Template.bind({});
 InlineVideoPortrait.args = {
   ...addInlineMedia(
     CardProps,
-    "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/114.mp4"
-  ),
+    [
+      {
+        title: "Mock Title 1",
+        src: "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/114.mp4"
+      },
+      {
+        title: "Mock Title 2",
+        src: "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/114.mp4"
+      },
+      {
+        title: "Mock Title 3",
+        src: "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/114.mp4"
+      },
+    ]
+  )
 };
 
 export const InlinePicturePortrait = Template.bind({});
 InlinePicturePortrait.args = {
   ...addInlineMedia(
     CardProps,
-    "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/118.jpg"
+    [
+      {
+        title: "Mock Title",
+        src: "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/118.jpg"
+      }
+    ]
   ),
 };
 
@@ -49,7 +67,12 @@ export const InlinePictureLandscape = Template.bind({});
 InlinePictureLandscape.args = {
   ...addInlineMedia(
     CardProps,
-    "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/143.jpg"
+    [
+      {
+        title: "Mock Title",
+        src: "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/143.jpg"
+      }
+    ]
   ),
 };
 

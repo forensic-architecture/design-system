@@ -130,4 +130,85 @@ export const generateCardLayout = {
       ],
     ];
   },
+  // yemen: ({ event, colors, coloringSet, getFilterIdxFromColorSet }) => {
+  //   let precision;
+  //   switch (event.precision_exact) {
+  //     case `yes`:
+  //       precision = `Precise location confirmed`;
+  //       break;
+  //     case `no`:
+  //       precision = `Precise location estimated`;
+  //       break;
+  //     default:
+  //       precision = null;
+  //       break;
+  //   }
+
+  //   return [
+  //     [
+  //       { kind: "date", title: "Incident Date", value: event.datetime },
+  //       {
+  //         kind: "text",
+  //         title: "Location",
+  //         hoverValue: precision,
+  //         value: event.location,
+  //       },
+  //     ],
+  //     [{ kind: "line-break", times: 0.4 }],
+  //     [
+  //       {
+  //         kind: "text",
+  //         title: "Summary",
+  //         value: event.description,
+  //         scaleFont: 1.1,
+  //       },
+  //     ],
+  //     [{ kind: "line-break", times: 0.4 }],
+  //     [
+  //       {
+  //         kind: "text",
+  //         title: "Details of remnants found",
+  //         value: event.remnants_found
+  //       }
+  //     ],
+  //     [{ kind: "line-break", times: 0.4 }],
+  //     [
+  //       {
+  //         kind: "text",
+  //         title: "Manufacturer of remnants found"
+  //         value: event.manufacturer
+  //       }
+  //     ]
+  //     [
+  //       {
+  //         kind: "button",
+  //         title: "Type of Attack",
+  //         value: event.associations.slice(0, -1).map((association) => ({
+  //           text: association.title,
+  //           color:
+  //             getFilterIdxFromColorSet(association.filter_paths.join("/"), coloringSet) >= 0
+  //               ? colors[getFilterIdxFromColorSet(association.filter_paths.join("/"), coloringSet)]
+  //               : null,
+  //           normalCursor: true,
+  //         })),
+  //       },
+  //     ],
+  //     [{ kind: "line-break", times: 0.2 }],
+  //     [
+  //       {
+  //         kind: event.hide_source === "FALSE" ? "button" : "markdown",
+  //         title: "Sources",
+  //         value:
+  //           event.hide_source === "FALSE"
+  //             ? event.links.map((href, idx) => ({
+  //                 text: `Source ${idx + 1}`,
+  //                 href,
+  //                 color: null,
+  //                 onClick: () => window.open(href, "_blank"),
+  //               }))
+  //             : "Source hidden to protect the privacy and dignity of civilians. Read more [here](https://staging.forensic-architecture.org/wp-content/uploads/2020/09/2020.14.09-FA-Bcat-Mission-Statement.pdf).",
+  //       },
+  //     ],
+  //   ];
+  // },
 };
