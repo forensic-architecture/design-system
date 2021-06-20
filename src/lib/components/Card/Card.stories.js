@@ -2,13 +2,13 @@ import React from "react";
 
 import { Card } from "./Card.React";
 import { generateCardLayout } from "../../templates";
-import { CardProps } from "../../../test/Card";
+import { ProtestsCardProps, YemenCardProps } from "../../../test/Card";
 
 const Template = (args) => <Card {...args} />;
 
 export const TextOnly = Template.bind({});
 TextOnly.args = {
-  ...CardProps,
+  ...ProtestsCardProps,
 };
 
 const addInlineMedia = (props, media) => {
@@ -32,7 +32,7 @@ BasicLayoutTemplate.args = {
 export const InlineVideoPortrait = Template.bind({});
 InlineVideoPortrait.args = {
   ...addInlineMedia(
-    CardProps,
+    ProtestsCardProps,
     [
       {
         title: "Mock Title 1",
@@ -53,7 +53,7 @@ InlineVideoPortrait.args = {
 export const InlinePicturePortrait = Template.bind({});
 InlinePicturePortrait.args = {
   ...addInlineMedia(
-    CardProps,
+    ProtestsCardProps,
     [
       {
         title: "Mock Title",
@@ -66,7 +66,7 @@ InlinePicturePortrait.args = {
 export const InlinePictureLandscape = Template.bind({});
 InlinePictureLandscape.args = {
   ...addInlineMedia(
-    CardProps,
+    ProtestsCardProps,
     [
       {
         title: "Mock Title",
@@ -74,6 +74,19 @@ InlinePictureLandscape.args = {
       }
     ]
   ),
+};
+
+export const SampleProject = Template.bind({});
+SampleProject.args = {
+  ...addInlineMedia(
+    YemenCardProps,
+    [
+      {
+        title: "Mock Title",
+        src: "https://datasheet-sources.ams3.cdn.digitaloceanspaces.com/us2020/114.mp4"
+      }
+    ]
+  )
 };
 
 export default {

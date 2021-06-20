@@ -1,4 +1,4 @@
-export const CardProps = {
+export const ProtestsCardProps = {
   content: [
     [{ kind: "tag", align: "end", value: 235 }],
     [{ kind: "line" }],
@@ -101,3 +101,76 @@ export const CardProps = {
   isSelected: true,
   sourceError: null,
 };
+
+export const YemenCardProps = {
+  content: [
+    [
+      { kind: "date", title: "Date", value: new Date(2020, 1, 28) },
+      { kind: "text", title: "Location", hoverValue: "Location estimated", value: "Qaflat Adhr مارب "}
+    ],
+    [{ kind: "line-break", times: 0.4 }],
+    [
+      {
+        kind: "text",
+        title: "Summary",
+        value: "Attack on a public hospital. The hospital's medicine warehouse was attacked by an airstrike conducted by the coalition.  Four civilians were injured.",
+        scaleFont: 1.1,
+      },
+    ],
+    [{ kind: "line-break", times: 0.4 }],
+    [
+      {
+        kind: "text",
+        title: "Remnants found",
+        value: "Guidance unit and fin assembly system from an air-dropped bomb, however images were insufficient to make a positive identification."
+      },
+    ],
+    [{ kind: "line-break", times: 0.4 }],
+    [
+      {
+        kind: "text",
+        title: "Manufacturer",
+        value: "Fake corp"
+      }
+    ],
+    [{ kind: "line-break", times: 0.4 }],
+    [
+      {
+        kind: "button",
+        title: "Type of Attack",
+        value: [
+          {
+            text: "Fake Attack",
+            color: "#F08035",
+            normalCursor: true
+          }
+        ],
+      },
+    ],
+    [{ kind: "line-break", times: 0.2 }],
+    [
+      {
+        kind: "button",
+        title: "Sources",
+        value: [
+          {
+            text: 'Source 1',
+            href: 'https://www.youtube.com/watch?v=w-RmVUiyvs4',
+            color: null,
+            onClick: () => window.open('https://www.youtube.com/watch?v=w-RmVUiyvs4', "_blank")
+          },
+          {
+            text: 'Source 2',
+            href: 'https://www.youtube.com/watch?v=cRQRmFhL_vo',
+            color: null,
+            onClick: () => window.open('https://www.youtube.com/watch?v=cRQRmFhL_vo', "_blank")
+          }
+        ]
+      },
+    ]
+  ],
+  language: "en-US",
+  isLoading: false,
+  isSelected: true,
+  sourceError: null
+}
