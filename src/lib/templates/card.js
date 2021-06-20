@@ -192,12 +192,26 @@ export const generateCardLayout = {
         },
       ],
       [{ kind: "line-break", times: 0.2 }],
-      // [
-      //   {
-      //     kind: "media",
-      //     title: "Media",
-      //     value: event.media
-      // ],
+      [
+        {
+          kind: "button",
+          title: "Sources",
+          value: event.links.map((href, idx) => ({
+                  text: `Source ${idx + 1}`,
+                  href,
+                  color: null,
+                  onClick: () => window.open(href, "_blank"),
+                }))
+        },
+      ],
+      [{ kind: "line-break", times: 0.2 }],
+      [
+        {
+          kind: "media",
+          title: "Media",
+          value: event.media
+        }
+      ],
     ];
   },
 };

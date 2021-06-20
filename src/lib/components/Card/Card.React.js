@@ -35,7 +35,6 @@ export const Card = ({
     );
 
   const renderMedia = ({ media, idx }) => {
-    console.info(media)
     return <CardMedia key={idx} src={media.src} title={media.title} />;
   };
 

@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useCallback } from "react";
 import { typeForPath } from "../../../utils";
 
+const TITLE_LENGTH = 50;
 // TODO should videos
 //    - play inline
 //    - appear zoomed out/in
@@ -18,12 +19,13 @@ const Media = ({ src, title }) => {
   }, []);
 
   const type = typeForPath(src);
-  console.log(type, src);
+  const formattedTitle = title && title.length > TITLE_LENGTH ? `${title.slice(0, TITLE_LENGTH + 1)}...` : title;
+
   switch (type) {
     case "Video":
       return (
         <div className="card-cell media">
-          {title && <h4>{title}</h4>}
+          {title && <h4 title={title}>{formattedTitle}</h4>}
           <video
             onMouseEnter={onVideoStart}
             onMouseLeave={onVideoStop}
@@ -39,7 +41,7 @@ const Media = ({ src, title }) => {
     case "Image":
       return (
         <div className="card-cell media">
-          {title && <h4>{title}</h4>}
+          {title && <h4 title={title}>{formattedTitle}</h4>}
           <div className="img-wrapper">
             <img
               src={src}
