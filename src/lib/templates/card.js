@@ -180,7 +180,7 @@ export const generateCardLayout = {
         }
       ],
       [{ kind: "line-break", times: 0.4 }],
-      [
+      [ event.type_of_attack && (
         {
           kind: "button",
           title: "Type of Attack",
@@ -189,7 +189,7 @@ export const generateCardLayout = {
             color: association.colour,
             normalCursor: true,
           })),
-        },
+        }),
       ],
       [{ kind: "line-break", times: 0.2 }],
       [
