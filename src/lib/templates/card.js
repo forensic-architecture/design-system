@@ -130,4 +130,88 @@ export const generateCardLayout = {
       ],
     ];
   },
+  yemen: ({ event }) => {
+    let precision;
+    switch (event.precision_exact) {
+      case `YES`:
+        precision = `Precise location confirmed`;
+        break;
+      case `NO`:
+        precision = `Location estimated`;
+        break;
+      default:
+        precision = null;
+        break;
+    }
+
+    return [
+      [
+        { kind: "date", title: "Incident Date", value: event.datetime },
+        {
+          kind: "text",
+          title: "Location",
+          hoverValue: precision,
+          value: event.location,
+        },
+      ],
+      [{ kind: "line-break", times: 0.4 }],
+      [
+        {
+          kind: "text",
+          title: "Summary",
+          value: event.description,
+          scaleFont: 1.1,
+        },
+      ],
+      [{ kind: "line-break", times: 0.4 }],
+      [
+        {
+          kind: "text",
+          title: "Remnants found",
+          value: event.remnants_found
+        }
+      ],
+      [{ kind: "line-break", times: 0.4 }],
+      [
+        {
+          kind: "text",
+          title: "Manufacturer",
+          value: event.manufacturer
+        }
+      ],
+      [{ kind: "line-break", times: 0.4 }],
+      [
+        {
+          kind: "button",
+          title: "Type of Attack",
+          value: event.associations.filter(a => a.title === event.type_of_attack).map((association) => ({
+            text: event.type_of_attack,
+            color: association.colour,
+            normalCursor: true,
+          })),
+        },
+      ],
+      [{ kind: "line-break", times: 0.2 }],
+      [
+        {
+          kind: "button",
+          title: "Sources",
+          value: event.links.map((href, idx) => ({
+                  text: `Source ${idx + 1}`,
+                  href,
+                  color: null,
+                  onClick: () => window.open(href, "_blank"),
+                }))
+        },
+      ],
+      [{ kind: "line-break", times: 0.2 }],
+      [
+        {
+          kind: "media",
+          title: "Media",
+          value: event.media
+        }
+      ],
+    ];
+  },
 };

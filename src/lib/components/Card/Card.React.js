@@ -34,14 +34,22 @@ export const Card = ({
       <CardCaret toggle={() => toggle()} isOpen={isOpen} />
     );
 
-  const renderMedia = ({ src }) => {
-    return <CardMedia src={src} />;
+  const renderMedia = ({ media, idx }) => {
+    return <CardMedia key={idx} src={media.src} title={media.title} />;
   };
 
   function renderField(field) {
     switch (field.kind) {
       case "media":
-        return renderMedia({ src: field.src });
+        return (
+          <div className="card-cell">
+            {
+              field.value.map((media, idx) => {
+                return renderMedia({ media, idx });
+              })
+            }
+          </div>
+        );
       case "line":
         return (
           <div style={{ height: `1rem`, width: `100%` }}>
