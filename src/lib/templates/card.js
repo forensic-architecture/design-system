@@ -1,4 +1,72 @@
+function produceMediaInline(path) {
+  const ext = path.match(/\.[0-9a-z]+$/i)[0]
+  switch (ext) {
+    case '.jpg':
+    case '.png':
+      return [{ kind: 'media', value: [{ src: path }] }]
+    case '.pdf':
+      return [{ kind: 'button', value: [{ text: 'See full PDF', color: 'white', href: path, onClick: () => window.open(path, '_blank') }]  }]
+    case '.md':
+      return [{ kind: 'markdown', value: path }]
+    default:
+      return null
+  }
+}
+
 export const generateCardLayout = {
+  default: ({ event }) => {
+    return [
+      [
+        {
+          kind: "date",
+          title: "Incident Date",
+          value: event.datetime || event.date || ``,
+        },
+        {
+          kind: "text",
+          title: "Location",
+          value: event.location || `—`,
+        },
+      ],
+      [{ kind: "line-break", times: 0.4 }],
+      [
+        {
+          kind: "text",
+          title: "Summary",
+          value: event.description || ``,
+          scaleFont: 1.1,
+        },
+      ],
+      [{ kind: "line-break", times: 0.8 }],
+      // [
+      //   {
+      //     kind: "button",
+      //     title: "Associations",
+      //     value: event.associations.map(association => {
+      //       return {
+      //         text: association.title,
+      //         color: null,
+      //         onClick: () => {
+      //           console.log("hello");
+      //         },
+      //       }
+      //     })
+      //   },
+      // ],
+      ...event.sources.map((source, idx) => {
+        if (source.paths.length <= 0) return null
+        return [
+          [{
+            kind: 'button',
+            title: `Source ${idx+1}`,
+            value: [{ text: source.title, color: null, href: source.url, onClick: () => window.open(source.url, "_blank") }],
+          }],
+          [{ kind: 'text', value: source.description }],
+          ...source.paths.map(produceMediaInline).filter(s => s !== null)
+        ]
+      }).filter(src => src !== null).flatMap(x => x),
+    ]
+  },
   basic: ({ event }) => {
     return [
       [

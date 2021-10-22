@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import CardText from "./atoms/Text";
 import CardTime from "./atoms/Time";
 import CardButton from "./atoms/Button";
-import CardCaret from "./atoms/Caret";
 import CardCustom from "./atoms/CustomField";
+import CardAsyncMarkdown from "./atoms/AsyncMarkdown";
 import CardMedia from "./atoms/Media";
 
 import { makeNiceDate, isEmptyString } from "../../utils";
@@ -17,9 +17,6 @@ export const Card = ({
   isSelected = false,
   language = "en-US",
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
-
   // NB: should be internationalized.
   const renderTime = (field) => (
     <CardTime
@@ -28,11 +25,6 @@ export const Card = ({
       {...field}
     />
   );
-
-  const renderCaret = () =>
-    sources.length === 0 && (
-      <CardCaret toggle={() => toggle()} isOpen={isOpen} />
-    );
 
   const renderMedia = ({ media, idx }) => {
     return <CardMedia key={idx} src={media.src} title={media.title} />;
@@ -64,7 +56,7 @@ export const Card = ({
         // this is like a span
         return null;
       case "markdown":
-        return <CardCustom {...field} />;
+        return <CardAsyncMarkdown {...field} />;
       case "tag":
         return (
           <div
@@ -144,23 +136,12 @@ export const Card = ({
     );
   }
 
-  // TODO: render afterCaret appropriately from props
-  sources = [];
-
   return (
     <li
       className={`event-card ${isSelected ? "selected" : ""}`}
       onClick={onSelect}
     >
       {content.map((row) => renderRow(row))}
-      {isOpen && (
-        <div className="card-bottomhalf">
-          {sources.map((row) => (
-            <div className="card-row"></div>
-          ))}
-        </div>
-      )}
-      {sources.length > 0 ? renderCaret() : null}
     </li>
   );
 };
