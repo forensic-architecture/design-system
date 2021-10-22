@@ -59,7 +59,7 @@ export const generateCardLayout = {
           [{
             kind: 'button',
             title: `Source ${idx+1}`,
-            value: [{ text: source.title, color: null, href: source.url }],
+            value: [{ text: source.title, color: null, href: source.url, onClick: () => window.open(href, "_blank") }],
           }],
           [{ kind: 'text', value: source.description }],
           ...source.paths.map(produceMediaInline).filter(s => s !== null)
