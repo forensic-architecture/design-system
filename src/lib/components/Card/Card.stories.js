@@ -35,8 +35,7 @@ DefaultCard.args = {
           "paths": [
             "https://d10yslqdemxz8r.cloudfront.net/welfare/15.-Rosslyn-Noonan.pdf",
             "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png",
-            "http://localhost:8000/source2/s3.jpg",
-            "http://localhost:8000/source4.md"
+            "https://d10yslqdemxz8r.cloudfront.net/welfare/archivescentral-lake-alice-mental-hospital-site-plan.md",
           ],
           "id": "src7",
           "title": "A Composite Source. Image and Text",

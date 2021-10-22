@@ -7,7 +7,7 @@ function produceMediaInline(path) {
     case '.pdf':
       return [{ kind: 'button', value: [{ text: 'See full PDF', color: 'white', href: path, onClick: () => window.open(path, '_blank') }]  }]
     case '.md':
-      return [{ kind: 'markdown', value: '*TODO*' }]
+      return [{ kind: 'markdown', value: path }]
     default:
       return null
   }

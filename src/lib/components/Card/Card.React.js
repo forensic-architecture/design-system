@@ -4,6 +4,7 @@ import CardText from "./atoms/Text";
 import CardTime from "./atoms/Time";
 import CardButton from "./atoms/Button";
 import CardCustom from "./atoms/CustomField";
+import CardAsyncMarkdown from "./atoms/AsyncMarkdown";
 import CardMedia from "./atoms/Media";
 
 import { makeNiceDate, isEmptyString } from "../../utils";
@@ -55,7 +56,7 @@ export const Card = ({
         // this is like a span
         return null;
       case "markdown":
-        return <CardCustom {...field} />;
+        return <CardAsyncMarkdown {...field} />;
       case "tag":
         return (
           <div
