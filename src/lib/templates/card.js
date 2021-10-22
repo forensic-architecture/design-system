@@ -5,7 +5,7 @@ function produceMediaInline(path) {
     case '.png':
       return [{ kind: 'media', value: [{ src: path }] }]
     case '.pdf':
-      return [{ kind: 'button', value: [{ text: 'See full PDF', color: 'white' }]  }]
+      return [{ kind: 'button', value: [{ text: 'See full PDF', color: 'white', href: path, onClick: () => window.open(path, '_blank') }]  }]
     case '.md':
       return [{ kind: 'markdown', value: '*TODO*' }]
     default:
@@ -59,7 +59,7 @@ export const generateCardLayout = {
           [{
             kind: 'button',
             title: `Source ${idx+1}`,
-            value: [{ text: source.title, color: null, href: source.url, onClick: () => window.open(href, "_blank") }],
+            value: [{ text: source.title, color: null, href: source.url, onClick: () => window.open(source.url, "_blank") }],
           }],
           [{ kind: 'text', value: source.description }],
           ...source.paths.map(produceMediaInline).filter(s => s !== null)
