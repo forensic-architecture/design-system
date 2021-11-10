@@ -6,6 +6,7 @@
   ],
   "license": "Do No Harm",
   "version": "0.6.3",
+  "version": "0.6.4",
   "main": "./dist/react.js",
   "module": "./dist/react.esm.js",
   "files": [
