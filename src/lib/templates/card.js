@@ -1,5 +1,5 @@
 export const generateCardLayout = {
-  basic: ({ event }) => {
+  basic: ({event}) => {
     return [
       [
         {
@@ -13,7 +13,7 @@ export const generateCardLayout = {
           value: event.location || `—`,
         },
       ],
-      [{ kind: "line-break", times: 0.4 }],
+      [{kind: "line-break", times: 0.4}],
       [
         {
           kind: "text",
@@ -24,7 +24,7 @@ export const generateCardLayout = {
       ],
     ];
   },
-  us_protests: ({ event, colors, coloringSet, getFilterIdxFromColorSet }) => {
+  us_protests: ({event, colors, coloringSet, getFilterIdxFromColorSet}) => {
     let precision;
     switch (event.location_precision) {
       case `Generalised`:
@@ -50,9 +50,9 @@ export const generateCardLayout = {
           value: `Incident #${event.incident_id}`,
         },
       ],
-      [{ kind: "line" }],
+      [{kind: "line"}],
       [
-        { kind: "date", title: "Incident Date", value: event.datetime },
+        {kind: "date", title: "Incident Date", value: event.datetime},
         {
           kind: "text",
           title: "Location",
@@ -60,7 +60,7 @@ export const generateCardLayout = {
           value: event.location,
         },
       ],
-      [{ kind: "line-break", times: 0.4 }],
+      [{kind: "line-break", times: 0.4}],
       [
         {
           kind: "text",
@@ -69,7 +69,7 @@ export const generateCardLayout = {
           scaleFont: 1.1,
         },
       ],
-      [{ kind: "line-break", times: 0.4 }],
+      [{kind: "line-break", times: 0.4}],
       [
         {
           kind: "button",
@@ -93,7 +93,7 @@ export const generateCardLayout = {
           })),
         },
       ],
-      [{ kind: "line-break", times: 0.2 }],
+      [{kind: "line-break", times: 0.2}],
       [
         {
           kind: "list",
@@ -120,17 +120,17 @@ export const generateCardLayout = {
           value:
             event.hide_source === "FALSE"
               ? event.links.map((href, idx) => ({
-                  text: `Source ${idx + 1}`,
-                  href,
-                  color: null,
-                  onClick: () => window.open(href, "_blank"),
-                }))
+                text: `Source ${idx + 1}`,
+                href,
+                color: null,
+                onClick: () => window.open(href, "_blank"),
+              }))
               : "Source hidden to protect the privacy and dignity of civilians. Read more [here](https://staging.forensic-architecture.org/wp-content/uploads/2020/09/2020.14.09-FA-Bcat-Mission-Statement.pdf).",
         },
       ],
     ];
   },
-  yemen: ({ event }) => {
+  yemen: ({event}) => {
     let precision;
     switch (event.precision_exact) {
       case `YES`:
@@ -146,7 +146,7 @@ export const generateCardLayout = {
 
     return [
       [
-        { kind: "date", title: "Incident Date", value: event.datetime },
+        {kind: "date", title: "Incident Date", value: event.datetime},
         {
           kind: "text",
           title: "Location",
@@ -154,7 +154,7 @@ export const generateCardLayout = {
           value: event.location,
         },
       ],
-      [{ kind: "line-break", times: 0.4 }],
+      [{kind: "line-break", times: 0.4}],
       [
         {
           kind: "text",
@@ -163,7 +163,7 @@ export const generateCardLayout = {
           scaleFont: 1.1,
         },
       ],
-      [{ kind: "line-break", times: 0.4 }],
+      [{kind: "line-break", times: 0.4}],
       [
         {
           kind: "text",
@@ -171,7 +171,7 @@ export const generateCardLayout = {
           value: event.remnants_found
         }
       ],
-      [{ kind: "line-break", times: 0.4 }],
+      [{kind: "line-break", times: 0.4}],
       [
         {
           kind: "text",
@@ -179,8 +179,8 @@ export const generateCardLayout = {
           value: event.manufacturer
         }
       ],
-      [{ kind: "line-break", times: 0.4 }],
-      [ event.type_of_attack && (
+      [{kind: "line-break", times: 0.4}],
+      [event.type_of_attack && (
         {
           kind: "button",
           title: "Type of Attack",
@@ -191,20 +191,27 @@ export const generateCardLayout = {
           })),
         }),
       ],
-      [{ kind: "line-break", times: 0.2 }],
+      [event.evidence_of_complicity && (
+        {
+          kind: "text",
+          title: "Evidence of Complicity",
+          value: event.evidence_of_complicity
+        }),
+      ],
+      [{kind: "line-break", times: 0.2}],
       [
         {
           kind: "button",
           title: "Sources",
           value: event.links.map((href, idx) => ({
-                  text: `Source ${idx + 1}`,
-                  href,
-                  color: null,
-                  onClick: () => window.open(href, "_blank"),
-                }))
+            text: `Source ${idx + 1}`,
+            href,
+            color: null,
+            onClick: () => window.open(href, "_blank"),
+          }))
         },
       ],
-      [{ kind: "line-break", times: 0.2 }],
+      [{kind: "line-break", times: 0.2}],
       [
         {
           kind: "media",
