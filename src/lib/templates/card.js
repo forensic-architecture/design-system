@@ -193,9 +193,13 @@ export const generateCardLayout = {
       ],
       [event.evidence_of_complicity && (
         {
-          kind: "text",
+          kind: "button",
           title: "Evidence of Complicity",
-          value: event.evidence_of_complicity
+          value: [{
+            text: event.evidence_of_complicity,
+            color: event.colour,
+            normalCursor: true
+          }],
         }),
       ],
       [{kind: "line-break", times: 0.2}],
