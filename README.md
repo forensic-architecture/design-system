@@ -24,9 +24,14 @@ Publish under our `@forensic-architecture` organization.
 
 Or any other external repo locally:
 
-```
+```bash
+# Ensure that this repo is using the same react and react-dom versions of your repo by running the following in this repo:
+# See https://reactjs.org/warnings/invalid-hook-call-warning.html for more detail
+npm link ../timemap/node_modules/react
+npm link ../timemap/node_modules/react-dom
+# Run the build process to watch for changes in this repo:
 npm run build:react:watch
-# in the timemap repo
+# Set up a symlink to the local copy in your timemap repo: 
 npm link @forensic-architecture/design-system
 ```
 

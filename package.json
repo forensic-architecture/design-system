@@ -50,8 +50,8 @@
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
+    "react": ">=16.14.0",
+    "react-dom": ">=16.14.0",
     "vue": "^2.6.12"
   },
   "devDependencies": {
