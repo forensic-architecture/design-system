@@ -46,21 +46,16 @@ export const generateCardLayout = {
           scaleFont: 1.1,
         },
       ],
-      [
-        {
-          kind: "text",
-          title: "Sources",
-          value: "Sources",
-        },
-      ],
-      ...event.sources.map(source => ([
-        {
-          kind: "text",
-          title: source.title,
-          value: source.description || ``,
-          scaleFont: 1.1,
-        },
-        ...source.paths.map(p => ({
+      ...event.sources.flatMap((source, idx) => ([
+        [
+          {
+            kind: "text",
+            title: `Source ${idx}`,
+            value: source.description || ``,
+            scaleFont: 1.1,
+          },
+        ],
+        source.paths.map(p => ({
           kind: "media",
           title: "Media",
           value: [{ src: p, title: null }],

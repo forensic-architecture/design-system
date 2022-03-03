@@ -8,6 +8,7 @@ import CardCustom from "./atoms/CustomField";
 import CardMedia from "./atoms/Media";
 
 import { makeNiceDate, isEmptyString } from "../../utils";
+import hash from "object-hash";
 
 export const Card = ({
   content = [],
@@ -136,9 +137,9 @@ export const Card = ({
 
   function renderRow(row) {
     return (
-      <div className="card-row">
+      <div className="card-row" key={hash(row)}>
         {row.map((field) => (
-          <>{renderField(field)}</>
+          <span key={hash(field)}>{renderField(field)}</span>
         ))}
       </div>
     );
@@ -149,13 +150,14 @@ export const Card = ({
 
   return (
     <li
+      key={hash(content)}
       className={`event-card ${isSelected ? "selected" : ""}`}
       onClick={onSelect}
     >
       {content.map((row) => renderRow(row))}
       {isOpen && (
         <div className="card-bottomhalf">
-          {sources.map((row) => (
+          {sources.map(() => (
             <div className="card-row"></div>
           ))}
         </div>

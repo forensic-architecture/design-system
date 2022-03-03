@@ -46,7 +46,8 @@
     ]
   },
   "dependencies": {
-    "marked": "^1.1.1"
+    "marked": "^1.1.1",
+    "object-hash": "^3.0.0"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
