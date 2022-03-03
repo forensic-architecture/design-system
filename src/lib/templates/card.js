@@ -24,6 +24,50 @@ export const generateCardLayout = {
       ],
     ];
   },
+  sourced: ({event}) => {
+    return [
+      [
+        {
+          kind: "date",
+          title: "Incident Date",
+          value: event.datetime || event.date || ``,
+        },
+        {
+          kind: "text",
+          title: "Location",
+          value: event.location || `—`,
+        },
+      ],
+      [
+        {
+          kind: "text",
+          title: "Summary",
+          value: event.description || ``,
+          scaleFont: 1.1,
+        },
+      ],
+      [
+        {
+          kind: "text",
+          title: "Sources",
+          value: "Sources",
+        },
+      ],
+      ...event.sources.map(source => ([
+        {
+          kind: "text",
+          title: source.title,
+          value: source.description || ``,
+          scaleFont: 1.1,
+        },
+        ...source.paths.map(p => ({
+          kind: "media",
+          title: "Media",
+          value: [{ src: p, title: null }],
+        }))
+      ]))
+    ]
+  },
   us_protests: ({event, colors, coloringSet, getFilterIdxFromColorSet}) => {
     let precision;
     switch (event.location_precision) {

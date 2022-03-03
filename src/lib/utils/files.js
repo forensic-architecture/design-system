@@ -8,6 +8,10 @@ export function typeForPath(path) {
     case /\.(mp4)$/.test(path):
       type = "Video";
       break;
+    case /\.(webm)$/.test(path):
+      type = "Video";
+      break;
+
     case /\.(md)$/.test(path):
       type = "Text";
       break;
